@@ -497,8 +497,81 @@ MathJax.Hub.Config({
 <li><a href="#_getting_started_with_matplotlib">6.1. Getting started with Matplotlib</a>
 <ul class="sectlevel3">
 <li><a href="#_saving_files_for_adjusting_in_inkscape">6.1.1. Saving Files For Adjusting In Inkscape</a></li>
+<li><a href="#_part_2_plotting_climate_data">6.1.2. PART 2- Plotting Climate Data</a></li>
 </ul>
 </li>
+<li><a href="#_more_on_visualising_data_in_matplotlib">6.2. More on visualising data in Matplotlib</a>
+<ul class="sectlevel3">
+<li><a href="#_get_the_data_and_scripts">6.2.1. Get the data and scripts</a></li>
+<li><a href="#_watch_the_videos">6.2.2. Watch the videos</a></li>
+<li><a href="#_plot_the_data">6.2.3. Plot the data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_summary_3">7. Summary</a></li>
+<li><a href="#_software">Appendix A: Software</a>
+<ul class="sectlevel2">
+<li><a href="#_essentials">A.1. Essentials</a>
+<ul class="sectlevel3">
+<li><a href="#_git">A.1.1. Git</a></li>
+<li><a href="#_python">A.1.2. Python</a></li>
+<li><a href="#_r">A.1.3. R</a></li>
+</ul>
+</li>
+<li><a href="#_useful_extras">A.2. Useful extras</a>
+<ul class="sectlevel3">
+<li><a href="#_a_virtual_machine">A.2.1. A virtual machine</a></li>
+<li><a href="#_ruby">A.2.2. Ruby</a></li>
+<li><a href="#_c_and_fortran">A.2.3. c++ and fortran</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_setting_up_on_windows">Appendix B: Setting up on Windows</a>
+<ul class="sectlevel2">
+<li><a href="#_working_with_the_powershell">B.1. Working with the powershell</a>
+<ul class="sectlevel3">
+<li><a href="#_starting_a_powershell_session">B.1.1. Starting a powershell session</a></li>
+</ul>
+</li>
+<li><a href="#_windows_installation_programs">B.2. Windows installation programs</a>
+<ul class="sectlevel3">
+<li><a href="#_package_management">B.2.1. Package management</a></li>
+<li><a href="#_git_2">B.2.2. Git</a></li>
+</ul>
+</li>
+<li><a href="#_python_2">B.3. Python</a></li>
+<li><a href="#_r_2">B.4. R</a></li>
+<li><a href="#_ruby_2">B.5. Ruby</a>
+<ul class="sectlevel3">
+<li><a href="#_install_ruby_using_choco">B.5.1. Install Ruby using choco</a></li>
+<li><a href="#_fix_rubygems_on_windows">B.5.2. Fix rubygems on Windows</a></li>
+<li><a href="#_install_some_gems">B.5.3. Install some gems</a></li>
+</ul>
+</li>
+<li><a href="#_c_and_fortran_2">B.6. C++ and Fortran</a>
+<ul class="sectlevel3">
+<li><a href="#_cygwin">B.6.1. Cygwin</a></li>
+</ul>
+</li>
+<li><a href="#_turning_your_windows_machine_into_a_linux_machine">B.7. Turning your windows machine into a Linux machine</a></li>
+<li><a href="#_summary_4">B.8. Summary</a></li>
+</ul>
+</li>
+<li><a href="#_setting_up_on_linux">Appendix C: Setting up on Linux</a>
+<ul class="sectlevel2">
+<li><a href="#_git_3">C.1. Git</a></li>
+<li><a href="#_python_3">C.2. Python</a>
+<ul class="sectlevel3">
+<li><a href="#_installing_python">C.2.1. Installing python</a></li>
+<li><a href="#_installing_python_packages">C.2.2. Installing python packages</a></li>
+</ul>
+</li>
+<li><a href="#_r_3">C.3. R</a></li>
+<li><a href="#_ruby_3">C.4. Ruby</a></li>
+<li><a href="#_c_and_fortran_3">C.5. c++ and fortran</a></li>
+<li><a href="#_summary_5">C.6. Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -1516,841 +1589,1438 @@ plt.title('Linear fit y(x)=ax+b, with a='+str('%.1f' % slope)+' and b='+str('%.1
 </div>
 </div>
 <div class="paragraph">
-<p>Boxplot, histogram and other stats</p>
+<p>=====Boxplot, histogram and other stats</p>
+</div>
+<div class="paragraph">
+<p>If you want to learn more about your data, it can be very useful to plot the histogram or probability density function associated to your dataset. You can also plot the boxplots to display the median, standard deviation and other useful information.
+Try to create one (or both) of these plots, either in a subplot under your first figure, or in an embedded plot (figure within the figure).</p>
+</div>
+<div class="paragraph">
+<p>You can use <code>plt.boxplot</code> to create the boxplot and <code>plt.hist</code> for the histogram and probability density function (depending on the parameters of the function).</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_part_2_plotting_climate_data">6.1.2. PART 2- Plotting Climate Data</h4>
+<div class="sect4">
+<h5 id="_downloading_the_data">Downloading the data</h5>
+<div class="paragraph">
+<p>OK, so first up we are going to have to download some data.
+The figure that we will be generating will display some of the paleo-climate data stretching back over 400kyr, taken from the famous Vostok ice core and first published by Petit et al. (1999).
+Conveniently, this data is now freely available from the <a href="http://www.ncdc.noaa.gov/">National Oceanic and Atmospheric Administration (NOAA)</a>.  It is easy enough to download the data manually, but now that you have been inducted into the wonderful world of Linux, we will do so via the command line.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open a terminal and navigate to your working directory – you may want to create a new directory for this class.</p>
+</li>
+<li>
+<p>Within this working directory, make a subsidiary directory to host the data. I’m going to call mine “VostokIceCoreData”.
+<strong>Note that you might (should) think about using Version Control for this class, to keep track of changes to your files</strong>.</p>
+</li>
+<li>
+<p>Change directory to the data directory you’ve just created.
+In Linux one way (of many) to quickly download files directly from an html link or ftp server is to use the command <code>wget</code>.  We are going to download the Deuterium temperature record:</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>If you want to learn more about your data, it can be very useful to plot the histogram or probability density function associated to your dataset. You can also plot the boxplots to display the median, standard deviation and other useful information.
-Try to create one (or both) of these plots, either in a subplot under your first figure, or in an embedded plot (figure within the figure).
-
-You can use ``plt.boxplot`` to create the boxplot and ``plt.hist`` for the histogram and probability density function (depending on the parameters of the function).
-
-
-
-
-PART 2- Plotting Climate Data
-=====================================
-
-Downloading the data
----------------------
-
-OK, so first up we are going to have to download some data.  The figure that we will be generating will display some of the paleo-climate data stretching back over 400kyr, taken from the famous Vostok ice core and first published by Petit et al. (1999).  Conveniently, this data is now freely available from the `National Oceanic and Atmospheric Administration (NOAA) &lt;http://www.ncdc.noaa.gov/&gt;`_.  It is easy enough to download the data manually, but now that you have been inducted into the wonderful world of Linux, we will do so via the command line.
-
-    * Open a terminal and navigate to your working directory – you may want to create a new directory for this class.
-
-    * Within this working directory, make a subsidiary directory to host the data. I’m going to call mine “VostokIceCoreData”. **Note that you might (should) think about using Version Control for this class, to keep track of changes to your files**.
-
-    * Change directory to the data directory you’ve just created.  In Linux one way (of many) to quickly download files directly from an html link or ftp server is to use the command ``wget``.  We are going to download the Deuterium temperature record::
-
-        - wget ftp://ftp.ncdc.noaa.gov/pub/data/paleo/icecore/antarctica/vostok/deutnat.txt
-
-    * And the oxygen isotope record::
-
-        - wget ftp://ftp.ncdc.noaa.gov/pub/data/paleo/icecore/antarctica/vostok/o18nat.txt
-
-    * And finally the atmospheric CO2 record::
-
-        - wget ftp://ftp.ncdc.noaa.gov/pub/data/paleo/icecore/antarctica/vostok/co2nat.txt
-
-    * The deutnat.txt file has a bunch of information at the start.  For simplicity, it is easiest just to delete this extra information, so that the text file contains only the data columns with the column headers.
-
-    * To get you started we’ve written a starting script that already has functions to read in these data files and produce a basic plot of the data.  Note that there are many ways of doing this, so the way we have scripted these may be different to the way that you/others do so.  If you have a niftier way of doing it then that is great!  Let’s download this script now from my GitHub repository::
-
-	- git clone https://DTMilodowski@bitbucket.org/DTMilodowski/numerical-modelling-and-data-management.git .
-
-The next step is to make some plots.  There are two parts to this: the first will be to plot the ice core data you have just downloaded; the second will be to plot data that you will yourself create alongside some common statistical procedures…
-
-
-Basic plot
---------------------
-
-Make sure that the data is in the same directory as the plotting script you’ve just downloaded.  Open up Spyder and load the plotting script.  Hit “F5” or click the select “Run” on the drop-down menu and then select the “Run” button.  It should now produce a nice enough looking graph – adequate you might think – but definitely possible to improve on before sharing with the wider world.
-Before moving on, make sure that you understand what is going on in each line of the code!
-
-
-Making this look better
-------------------------
-
-Setting axis limits
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-First up, we can clip the axes so that they are fitted to the data, removing the whitespace at the right hand side of the plots.  This is easy to do – for each axis instance (e.g. ``ax1``, ``ax2`` … etc.) possible commands are ``set_xlim(&lt;min&gt;,&lt;max&gt;)``, or ``set_xlim(xmin=&lt;value&gt;)`` and ``set_xlim(xmax=&lt;value&gt;)`` for to set one limit only.  ``set_ylim()`` gives you the equivalent functionality for the y axis.  For each of the subplots, use the command::
-
-	ax1.set_xlim(0,420)
-
-You will need to update ``ax1`` for each subplot.
-
-Grids
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Another quick improvement might be to add a grid to the plots to help improve the visualisation.  This is pretty easy once you know the command.  For each axis::
-
-	ax1.grid(True)
-
-Tick Markers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Some of the tick markers are too close for comfort.  To adjust these, for the subplot axis that you want to change:
-
-    * First decide on the repeat interval for your labels using the MultipleLocator() function.  Note that this is part of the matplotlib.ticker library, which we imported specifying the prefix tk::
-
-	majorLocator = tk.MultipleLocator(0.5)
-
-    * Setting the major divisions is then easy, once you know the command::
-
-	ax4.yaxis.set_major_locator(majorLocator)
-
-Repeat this for any axes you aren’t happy with.
-
-Labelling
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-It would also be good to label the subplots with a letter, so that you can easily refer to them if you were to write a caption or within the text of a larger document.  You could do this in Inkscape or another graphics package, but it is easy with Matplotlib too.
-We are going to use the annotate tool::
-
-	ax1.annotate('a', xy=(0.05,0.9),  xycoords='axes fraction', backgroundcolor='none', horizontalalignment='left',  verticalalignment='top',  fontsize=10)
-
-This member function applies the label to the axis we designated ``ax1`` (i.e. the first subplot).  The first argument is the label itself, followed by a series of keyword arguments (``kwargs``).  The first is the xy coordinate, followed by a specification of what these coordinates refer to; in this instance the fraction of the x and y axes respectively.  We then specify the background colour, alignment and font size.  These latter four arguments are optional, and would be replaced by default values if you missed them out.
-Try adding labels the rest of the subplots.  Experiment with varying the location etc. until you are happy with the results.
-
-
-Making this look good
------------------------
-
-The above commands will help improve the quality of your figure, but there are still some significant improvements that can be made.
-
-Layout Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-As the subplots have identical x axes, we can be more efficient with our space if we stack the subplots together and only label the lowermost axis.  To do this there are three steps.
-
-    * First, make an object that contains a reference to each of the tick labels that we want to remove::
-
-	xticklabels = ax1.get_xticklabels()+ax2.get_xticklabels()+ax3.get_xticklabels()
-
-    * Next turn these off::
-
-	plt.setp(xticklabels, visible=False)
-
-    * Finally we can use the subplots_adjust() function to reduce the spacing of the subplots::
-
-	plt.subplots_adjust(hspace=0.001)
-
-
-For some reason we can’t set hspace to 0, hence I have chosen an arbitrarily small number.  Note that using other kwargs here we could change the column spacing (cspace) or the margins.  Ask google for more details if you want to do this.
-
-Switching sides
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Now we have stacked the subplots, we have issues with overlapping labels.  This is easily fixed by alternating the axes labels between the left and right hand sides.  To label the second subplot axis on the right hand side rather than the left, use the commands::
-
-	ax2.yaxis.tick_right()
-	ax2.yaxis.set_label_position("right")
-
-If we so desired, a similar set of commands could be easily be used for labelling the x axis using the top or bottom axes.
-
-Repeat this for the fourth subplot.
-
-We now have a pretty decent figure, which you might well be happy sharing.  Note that many of these alterations could have been done in Inkscape.  This would almost definitely have been faster in the first iteration.  However, as soon as you need to reproduce anything, the advantages of automating this should hopefully be obvious.
-
-
-Now let’s zoom into the last Glacial-Interglacial cycle
-----------------------------------------------------------
-
-Now we are going to add another subplot to the figure, except this time, we are going to use a subplot that has different dimensions to the previous ones.   Specifically we are going to make a final subplot, in which both the temperature and CO2 data, spanning 130ka-present, are plotted on the same set of axes.  We’ll also include a legend for good measure.
-
-Adding a new subplot with a different size – layout control with the subplot2grid function
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-subplot2grid is the new way in which we are going to define the subplots.   It is similar in functionality to the previous subplot, except that we declare a grid of cells, and then tell matplotlib which cells should be used for each subplot.  This gives us more flexibility in terms of the figure layout.   `I’d suggest scanning this page to get a better idea &lt;http://matplotlib.org/users/gridspec.html&gt;`_.
-
-Now I reckon that in my ideal figure, the above subplots should fit into the upper two thirds of the page.  As a result, we should change the subplot declarations, so that rather than::
-
-	ax1 = plt.subplot(411)
-
-We have::
-
-	ax1 = plt.subplot2grid((6,4),(0,0),colspan=4)
-
-Here, our reference grid has 6 rows and 4 columns.  Each plot fills one row (default) and four columns.  The following subplot axis can then be declared as::
-
-	ax2 = plt.subplot2grid((6,4),(1,0),colspan=4)
-
-It now fills the second row (remember that python is 0 indexing)
-
-Try adding the third and fourth rows; plot the results to get an idea for what is going on.
-
-To plot the most recent glacial cycle, I’d like to use a figure that has different dimensions.  Specifically, I want it only to take up three quarters of the total figure width, so that I have space to the side to add a legend.  I also want it to be a bit taller, occupying 5/8ths of the height of the page. I am going to define a new grid with eight rows, rather than six, which we used before.  I guess it would be best to have consistent grid dimensions for everything, but I am feeling lazy at this point. (Note that because of this slight shortcut we can no longer use the ``tight_layout()`` function, so make sure you remove it!)
-
-The subplot declaration looks like this::
-
-	ax5 = plt.subplot2grid((8,4),(6,0),colspan=3,rowspan=3)
-
-Run the program again to see where this new axis plots.
-
-Now we will plot the temperature data for 130ka-present::
-
-	ax5.plot(ice_age_deut[ice_age_deut&lt;130000]/1000,deltaTS[ice_age_deut&lt;130000], '-', color="blue", linewidth=1, label=u'$\Delta TS$')
-
-Note that we are using **conditional indexing** here to plot only the data for which the corresponding ice age is &lt; 130ka.  Now you can add axis labels and label the subplot as we did earlier.  Note that we include a label here as the final ``kwarg`` in the list.  This is necessary for producing the legend.
-
-Plotting dual axes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-We also want to plot the CO2 data on the same set of axes.  This can be done as follows: rather than making a new subplot, we can use the ``twinx()`` function::
-
-	ax6 = ax5.twinx()
-
-This will now plot ``ax6`` in the same subplot frame as ``ax5``, sharing the x axis, but the y axis for each will be on opposing sides.  Other examples where this is useful are climate data (precipitation and temperature) and discharge records (precipitation/discharge) to name but a couple.
-
-We can now easily plot the CO2 data, again using conditional indexing::
-
-	ax6.plot(ice_age_CO2[ice_age_CO2&lt;130000]/1000,CO2[ice_age_CO2&lt;130000], ':', color="green", linewidth=2, label='$CO_2$')
-
-All that remains is for you to label the axes, adjust the tick locations, set the limits of the x axis and label the subplot and you are almost there.
-
-I find that the following y-limits are pretty good::
-
-	ax6.set_ylim(ymin=150,ymax=300)
-	ax5.set_ylim(ymin=-10,ymax=10)
-
-Legends for multiple axes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-One of the last things is to add a legend for this last subplot.  Legends are a little fiddly in matplotlib, especially if you want to make a single legend to cover the lines produced in multiple axes.
-Firstly we need to make a couple of adjustments to some earlier code, so that we now give the lines we’d like included in the legend a specific name i.e.::
-
-	line1 = ax5.plot(ice_age_deut[ice_age_deut&lt;130000]/1000,deltaTS[ice_age_deut&lt;130000], '-', color="blue", linewidth=1, label=u'$\Delta TS$')
-
-and::
-
-	line2 = ax6.plot(ice_age_CO2[ice_age_CO2&lt;130000]/1000,CO2[ice_age_CO2&lt;130000], ':', color="green", linewidth=2, label='$CO_2$')
-
-The legend can then be constructed in ax5 with the following three lines of code::
-
-	lines_for_legend=line1+line2
-	labels=[l.get_label() for l in lines_for_legend]
-	ax5.legend(lines_for_legend,labels,bbox_to_anchor=(1.36,0.66))
-
-VERY nearly finished!  We can do better though!
-
-Annotations – making this look awesome!
---------------------------------------------
-
-You might decide to make any further adjustments and annotations manually in Inkscape or another graphics package.  This is fine, and depending on your purposes might actually be better/more efficient, especially if you are going to need to do extensive and complex annotations, as it gets progressively more fiddly to do this in matplotlib.  However, I list below a few examples highlighting some of the tools that matplotlib provides for making your figures shine.
-
-Highlighting a period of interest
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The last glacial lasted from ~115ka to ~12ka.  Let’s make the final subplot more exciting by shading this time period a nice, icy cyan colour::
-
-	ax5.axvspan(12, 115, alpha = 0.2, color='cyan')
-
-The ``axvspan()`` function above shades a region between two specified limits on the x axis.  The alpha argument specifies the level of opacity (0=transparent, 1=opaque).
-
-Also, it might be helpful to show on subplot (a) exactly which time period is covered in the final subplot we’ve just created.  We can use the same function to do this::
-
-	ax1.axvspan(0, 130, ymin=0, ymax=0.2, color = '0.0',alpha=0.7)
-
-This time I have added a ``ymin`` and ``ymax`` to restrict the shading to the lowermost 20% of the figure.  Note that the y limits in the axvspan() function must be in terms of axis fraction.
-A similar function - ``axhspan()`` – can be used to produce horizontally delimited shaded regions
-
-Written annotations and arrows
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-We can also annotate the plots.  First up, it would be useful to right an annotation into the shaded region in ``ax1`` to refer the reader to the final subplot, which has the zoomed in data::
-
-	ax1.annotate('Panel (e)', xy=(65,-9), xycoords='data', color='white', horizontalalignment='center',  verticalalignment='center',  fontsize=10)
-
-Unlike the subplot labels, I am using the data coordinates to position the text in this case.  The choice of ``data`` vs. ``axes fraction`` is often pretty arbitrary and will depend on the purpose of the annotation.
-
-Finally, on the final subplot, I’d like to put an arrow marking the location of the LGM at ~26.5ka.  The annotation is identical to before, except that (i) the first ``xy`` coordinates refer to the end points of the arrow, (ii) the text positioning is now given be ``xytext`` and we have to add some info determining the arrow characteristics.  I’m not going to go into the details of these.  The best way of getting a feel for this is experimentation if you need to use this level of annotation::
-
-	ax5.annotate('Last Glacial Maximum', xy=(26.5, -7), xycoords='data', xytext=(0.5, 0.7), textcoords='axes fraction', horizontalalignment='right', verticalalignment='top', fontsize = 10, arrowprops=dict(arrowstyle="fancy", facecolor="gold", edgecolor="black", linewidth=0.25, shrinkB=4, connectionstyle="arc3,rad=0.1",))
-
-Filling between two lines using fill_between
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The very last thing that I am going to take you through is an introduction to the ``fill_between()`` function.  This essentially enables you to shade between two regions.  For example, you might wish to shade the region bounding the uncertainty in your model output.  In this case, I am going to shade between the x axis and the relative temperature change shown in subplot (a).
-Specifically areas that are negative (colder than present) will be shaded beneath the x axis, and coloured blue; areas that are positive (warmer than present) will be shaded red.  We need two lines of code::
-
-	ax1.fill_between(ice_age_deut/1000, 0, deltaTS, where=deltaTS&lt;=0, color="blue", alpha = 0.5)
-	ax1.fill_between(ice_age_deut/1000, 0, deltaTS, where=deltaTS&gt;0, color="red", alpha = 0.5)
-
-Essentially I am filling along the x axis (first argument), between 0 and the line deltaTS, for regions where deltaTS meets the given criteria.  A bit fiddly, but the results are good!
-Well done for making it this far!
-
-
-
-
-
-
-=== More on visualising data in Matplotlib
-
-In this section we will work a bit more with python-based data visualisation.
-
-==== Get the data and scripts
-
-Data files for these exercises can be copied from ~ressery/NMDM on linux.
-
-If you have not cloned the data for this course, you can do so with
-
-[source,console]
-----
-$ git clone https://github.com/simon-m-mudd/NMDM_files.git
-----
-
-If you have already cloned this repository, you should be able to update it to the latest version by going into the repository folder on your local machine and typing:
-
-[source,console]
-----
-$ git pull -u origin master
-----
-
-==== Watch the videos
-
-There are a few videos to watch in support of this lesson:
-
-* The introductory video: http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mp4 or http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mov
-* Video on plotting 2D data: http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mp4 or http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mov
-
-IMPORTANT: If you clone the data repository your directories holding the data files and scripts will be different than in the video. You will need to adjust your directories accordingly.
-
-==== Plot the data
-
-. First, copy (or link) file Tay1993.txt and write a Python script to make a figure with a different line for the daily flow in each month of the year. It will be much neater if you use a loop to do this rather than repeating the same code 12 times; see https://docs.python.org/2/tutorial/controlflow.html if you don’t know how to do that. If you label each line using
-+
-[source,python]
-----
-plt.plot(days, flow, label=month_name)
-----
-+
-and put
-+
-[source,python]
-----
-plt.legend()
-----
-+
-before showing the plot, the lines will be labelled to show which is which; month_name is a string that you could put in by hand or you could get from the calendar module.
-+
-. Make a separate subplot of the flow for each month of the year. Note that the subplot number can be a variable, e.g.
-+
-[source,python]
-----
-plt.subplot(4,3,i)
-----
-with `i=1` giving the top left subplot (not `i=0` as you might expect from Python) and `i=12` the bottom right.
-You might want to make the figure bigger to fit all of these subplots in, which you can do using
-+
-[source,python]
-----
-plt.figure(figsize=(xsize, ysize))
-----
-+
-The default size is 8 × 6 inches. If the labels are now overlapping, adding
-+
-[source,python]
-----
-plt.tight_layout()
-----
-before showing the plot will adjust the spacing to make room.
-+
-. The file `NYair.txt` contains measurements of ozone concentration, solar radiation,
+<pre class="highlight"><code class="language-console" data-lang="console">$ wget ftp://ftp.ncdc.noaa.gov/pub/data/paleo/icecore/antarctica/vostok/deutnat.txt</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>And the oxygen isotope record:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ wget ftp://ftp.ncdc.noaa.gov/pub/data/paleo/icecore/antarctica/vostok/o18nat.txt</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>And finally the atmospheric CO2 record:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ wget ftp://ftp.ncdc.noaa.gov/pub/data/paleo/icecore/antarctica/vostok/co2nat.txt</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>deutnat.txt</code> file has a bunch of information at the start.
+For simplicity, it is easiest just to delete this extra information, so that the text file contains only the data columns with the column headers.</p>
+</li>
+<li>
+<p>To get you started we’ve written a starting script that already has functions to read in these data files and produce a basic plot of the data.  Note that there are many ways of doing this, so the way we have scripted these may be different to the way that you/others do so.  If you have a niftier way of doing it then that is great!  Let’s download this script now from my GitHub repository.
+If you haven&#8217;t already cloned the files, do so from:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone https://github.com/simon-m-mudd/NMDM_files.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The next step is to make some plots.  There are two parts to this: the first will be to plot the ice core data you have just downloaded; the second will be to plot data that you will yourself create alongside some common statistical procedures…</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_basic_plot">Basic plot</h5>
+<div class="paragraph">
+<p>Make sure that the data is in the same directory as the plotting script you’ve just downloaded.  Open up Spyder and load the plotting script.  Hit “F5” or click the select “Run” on the drop-down menu and then select the “Run” button.  It should now produce a nice enough looking graph – adequate you might think – but definitely possible to improve on before sharing with the wider world.
+Before moving on, make sure that you understand what is going on in each line of the code!</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_making_this_look_better">Making this look better</h5>
+<div class="sect5">
+<h6 id="_setting_axis_limits">Setting axis limits</h6>
+<div class="paragraph">
+<p>First up, we can clip the axes so that they are fitted to the data, removing the whitespace at the right hand side of the plots.  This is easy to do – for each axis instance (e.g. <code>ax1</code>, <code>ax2</code>, etc.) possible commands are <code>set_xlim(&lt;min&gt;,&lt;max&gt;)</code>, or <code>set_xlim(xmin=&lt;value&gt;)</code> and <code>set_xlim(xmax=&lt;value&gt;)</code> for to set one limit only.  <code>set_ylim()</code> gives you the equivalent functionality for the y axis.  For each of the subplots, use the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax1.set_xlim(0,420)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will need to update <code>ax1</code> for each subplot.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_grids">Grids</h6>
+<div class="paragraph">
+<p>Another quick improvement might be to add a grid to the plots to help improve the visualisation.  This is pretty easy once you know the command.  For each axis:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax1.grid(True)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_tick_markers">Tick Markers</h6>
+<div class="paragraph">
+<p>Some of the tick markers are too close for comfort.  To adjust these, for the subplot axis that you want to change:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>First decide on the repeat interval for your labels using the MultipleLocator() function.  Note that this is part of the matplotlib.ticker library, which we imported specifying the prefix tk:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">majorLocator = tk.MultipleLocator(0.5)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Setting the major divisions is then easy, once you know the command:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax4.yaxis.set_major_locator(majorLocator)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Repeat this for any axes you aren’t happy with.</p>
+</div>
+<div class="paragraph">
+<p>====== Labelling</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It would also be good to label the subplots with a letter, so that you can easily refer to them if you were to write a caption or within the text of a larger document.  You could do this in Inkscape or another graphics package, but it is easy with Matplotlib too.
+We are going to use the annotate tool::</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax1.annotate('a', xy=(0.05,0.9),  xycoords='axes fraction', backgroundcolor='none', horizontalalignment='left',  verticalalignment='top',  fontsize=10)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This member function applies the label to the axis we designated <code>ax1</code> (i.e. the first subplot).
+The first argument is the label itself, followed by a series of keyword arguments (<code>kwargs</code>).
+The first is the xy coordinate, followed by a specification of what these coordinates refer to;
+in this instance the fraction of the x and y axes respectively.  We then specify the background colour, alignment and font size.  These latter four arguments are optional, and would be replaced by default values if you missed them out.
+Try adding labels the rest of the subplots.
+Experiment with varying the location etc. until you are happy with the results.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_making_this_look_good">Making this look good</h5>
+<div class="paragraph">
+<p>The above commands will help improve the quality of your figure, but there are still some significant improvements that can be made.</p>
+</div>
+<div class="sect5">
+<h6 id="_layout_configuration">Layout Configuration</h6>
+<div class="paragraph">
+<p>As the subplots have identical x axes, we can be more efficient with our space if we stack the subplots together and only label the lowermost axis.  To do this there are three steps.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>First, make an object that contains a reference to each of the tick labels that we want to remove:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">xticklabels = ax1.get_xticklabels()+ax2.get_xticklabels()+ax3.get_xticklabels()</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Next turn these off:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">plt.setp(xticklabels, visible=False)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Finally we can use the subplots_adjust() function to reduce the spacing of the subplots:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">plt.subplots_adjust(hspace=0.001)</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For some reason we can’t set hspace to 0, hence I have chosen an arbitrarily small number.  Note that using other kwargs here we could change the column spacing (cspace) or the margins.  Ask google for more details if you want to do this.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_switching_sides">Switching sides</h6>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Now we have stacked the subplots, we have issues with overlapping labels.  This is easily fixed by alternating the axes labels between the left and right hand sides.  To label the second subplot axis on the right hand side rather than the left, use the commands</dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax2.yaxis.tick_right()
+ax2.yaxis.set_label_position("right")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If we so desired, a similar set of commands could be easily be used for labelling the x axis using the top or bottom axes.</p>
+</div>
+<div class="paragraph">
+<p>Repeat this for the fourth subplot.</p>
+</div>
+<div class="paragraph">
+<p>We now have a pretty decent figure, which you might well be happy sharing.  Note that many of these alterations could have been done in Inkscape.  This would almost definitely have been faster in the first iteration.  However, as soon as you need to reproduce anything, the advantages of automating this should hopefully be obvious.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_now_let_s_zoom_into_the_last_glacial_interglacial_cycle">Now let’s zoom into the last Glacial-Interglacial cycle</h5>
+<div class="paragraph">
+<p>Now we are going to add another subplot to the figure, except this time, we are going to use a subplot that has different dimensions to the previous ones.   Specifically we are going to make a final subplot, in which both the temperature and CO2 data, spanning 130ka-present, are plotted on the same set of axes.  We’ll also include a legend for good measure.</p>
+</div>
+<div class="sect5">
+<h6 id="_adding_a_new_subplot_with_a_different_size_layout_control_with_the_subplot2grid_function">Adding a new subplot with a different size – layout control with the subplot2grid function</h6>
+<div class="paragraph">
+<p><code>subplot2grid</code> is the new way in which we are going to define the subplots.
+It is similar in functionality to the previous subplot, except that we declare a grid of cells, and then tell matplotlib which cells should be used for each subplot.  This gives us more flexibility in terms of the figure layout.   I’d suggest scanning this page to get a better idea: <a href="http://matplotlib.org/users/gridspec.html" class="bare">http://matplotlib.org/users/gridspec.html</a></p>
+</div>
+<div class="paragraph">
+<p>Now I reckon that in my ideal figure, the above subplots should fit into the upper two thirds of the page.
+As a result, we should change the subplot declarations, so that rather than:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax1 = plt.subplot(411)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We have:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax1 = plt.subplot2grid((6,4),(0,0),colspan=4)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, our reference grid has 6 rows and 4 columns.
+Each plot fills one row (default) and four columns.
+The following subplot axis can then be declared as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax2 = plt.subplot2grid((6,4),(1,0),colspan=4)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It now fills the second row (remember that python is 0 indexing)</p>
+</div>
+<div class="paragraph">
+<p>Try adding the third and fourth rows; plot the results to get an idea for what is going on.</p>
+</div>
+<div class="paragraph">
+<p>To plot the most recent glacial cycle, I’d like to use a figure that has different dimensions.  Specifically, I want it only to take up three quarters of the total figure width, so that I have space to the side to add a legend.  I also want it to be a bit taller, occupying 5/8ths of the height of the page. I am going to define a new grid with eight rows, rather than six, which we used before.  I guess it would be best to have consistent grid dimensions for everything, but I am feeling lazy at this point. (Note that because of this slight shortcut we can no longer use the <code>tight_layout()</code> function, so make sure you remove it!)</p>
+</div>
+<div class="paragraph">
+<p>The subplot declaration looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax5 = plt.subplot2grid((8,4),(6,0),colspan=3,rowspan=3)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run the program again to see where this new axis plots.</p>
+</div>
+<div class="paragraph">
+<p>Now we will plot the temperature data for 130ka-present:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax5.plot(ice_age_deut[ice_age_deut&lt;130000]/1000,deltaTS[ice_age_deut&lt;130000], '-', color="blue", linewidth=1, label=u'$\Delta TS$')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that we are using <strong>conditional indexing</strong> here to plot only the data for which the corresponding ice age is &lt; 130ka.  Now you can add axis labels and label the subplot as we did earlier.  Note that we include a label here as the final <code>kwarg</code> in the list.  This is necessary for producing the legend.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_plotting_dual_axes">Plotting dual axes</h6>
+<div class="paragraph">
+<p>We also want to plot the CO2 data on the same set of axes.
+This can be done as follows: rather than making a new subplot, we can use the <code>twinx()</code> function:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax6 = ax5.twinx()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will now plot <code>ax6</code> in the same subplot frame as <code>ax5</code>, sharing the x axis, but the y axis for each will be on opposing sides.  Other examples where this is useful are climate data (precipitation and temperature) and discharge records (precipitation/discharge) to name but a couple.</p>
+</div>
+<div class="paragraph">
+<p>We can now easily plot the CO2 data, again using conditional indexing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax6.plot(ice_age_CO2[ice_age_CO2&lt;130000]/1000,CO2[ice_age_CO2&lt;130000], ':', color="green", linewidth=2, label='$CO_2$')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All that remains is for you to label the axes, adjust the tick locations, set the limits of the x axis and label the subplot and you are almost there.</p>
+</div>
+<div class="paragraph">
+<p>I find that the following y-limits are pretty good:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax6.set_ylim(ymin=150,ymax=300)
+ax5.set_ylim(ymin=-10,ymax=10)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_legends_for_multiple_axes">Legends for multiple axes</h6>
+<div class="paragraph">
+<p>One of the last things is to add a legend for this last subplot.  Legends are a little fiddly in matplotlib, especially if you want to make a single legend to cover the lines produced in multiple axes.
+Firstly we need to make a couple of adjustments to some earlier code, so that we now give the lines we’d like included in the legend a specific name i.e.::</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">line1 = ax5.plot(ice_age_deut[ice_age_deut&lt;130000]/1000,deltaTS[ice_age_deut&lt;130000], '-', color="blue", linewidth=1, label=u'$\Delta TS$')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">line2 = ax6.plot(ice_age_CO2[ice_age_CO2&lt;130000]/1000,CO2[ice_age_CO2&lt;130000], ':', color="green", linewidth=2, label='$CO_2$')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The legend can then be constructed in ax5 with the following three lines of code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">lines_for_legend=line1+line2
+labels=[l.get_label() for l in lines_for_legend]
+ax5.legend(lines_for_legend,labels,bbox_to_anchor=(1.36,0.66))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>VERY nearly finished!  We can do better though!</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_annotations_making_this_look_awesome">Annotations – making this look awesome!</h5>
+<div class="paragraph">
+<p>You might decide to make any further adjustments and annotations manually in Inkscape or another graphics package.  This is fine, and depending on your purposes might actually be better/more efficient, especially if you are going to need to do extensive and complex annotations, as it gets progressively more fiddly to do this in matplotlib.  However, I list below a few examples highlighting some of the tools that matplotlib provides for making your figures shine.</p>
+</div>
+<div class="sect5">
+<h6 id="_highlighting_a_period_of_interest">Highlighting a period of interest</h6>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">The last glacial lasted from ~115ka to ~12ka.  Let’s make the final subplot more exciting by shading this time period a nice, icy cyan colour</dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax5.axvspan(12, 115, alpha = 0.2, color='cyan')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>axvspan()</code> function above shades a region between two specified limits on the x axis.  The alpha argument specifies the level of opacity (0=transparent, 1=opaque).</p>
+</div>
+<div class="paragraph">
+<p>Also, it might be helpful to show on subplot (a) exactly which time period is covered in the final subplot we’ve just created.  We can use the same function to do this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax1.axvspan(0, 130, ymin=0, ymax=0.2, color = '0.0',alpha=0.7)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This time I have added a <code>ymin</code> and <code>ymax</code> to restrict the shading to the lowermost 20% of the figure.  Note that the y limits in the axvspan() function must be in terms of axis fraction.
+A similar function - <code>axhspan()</code> – can be used to produce horizontally delimited shaded regions</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_written_annotations_and_arrows">Written annotations and arrows</h6>
+<div class="paragraph">
+<p>We can also annotate the plots.  First up, it would be useful to right an annotation into the shaded region in <code>ax1</code> to refer the reader to the final subplot, which has the zoomed in data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax1.annotate('Panel (e)', xy=(65,-9), xycoords='data', color='white', horizontalalignment='center',  verticalalignment='center',  fontsize=10)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Unlike the subplot labels, I am using the data coordinates to position the text in this case.
+The choice of <code>data</code> vs. <code>axes fraction</code> is often pretty arbitrary and will depend on the purpose of the annotation.</p>
+</div>
+<div class="paragraph">
+<p>Finally, on the final subplot, I’d like to put an arrow marking the location of the LGM at ~26.5ka.  The annotation is identical to before, except that (i) the first <code>xy</code> coordinates refer to the end points of the arrow, (ii) the text positioning is now given be <code>xytext</code> and we have to add some info determining the arrow characteristics.  I’m not going to go into the details of these.  The best way of getting a feel for this is experimentation if you need to use this level of annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax5.annotate('Last Glacial Maximum', xy=(26.5, -7), xycoords='data', xytext=(0.5, 0.7), textcoords='axes fraction', horizontalalignment='right', verticalalignment='top', fontsize = 10, arrowprops=dict(arrowstyle="fancy", facecolor="gold", edgecolor="black", linewidth=0.25, shrinkB=4, connectionstyle="arc3,rad=0.1",))</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_filling_between_two_lines_using_fill_between">Filling between two lines using fill_between</h6>
+<div class="paragraph">
+<p>The very last thing that I am going to take you through is an introduction to the <code>fill_between()</code> function.  This essentially enables you to shade between two regions.  For example, you might wish to shade the region bounding the uncertainty in your model output.  In this case, I am going to shade between the x axis and the relative temperature change shown in subplot (a).
+Specifically areas that are negative (colder than present) will be shaded beneath the x axis, and coloured blue; areas that are positive (warmer than present) will be shaded red.  We need two lines of code::</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">ax1.fill_between(ice_age_deut/1000, 0, deltaTS, where=deltaTS&lt;=0, color="blue", alpha = 0.5)
+ax1.fill_between(ice_age_deut/1000, 0, deltaTS, where=deltaTS&gt;0, color="red", alpha = 0.5)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Essentially I am filling along the x axis (first argument), between 0 and the line deltaTS, for regions where deltaTS meets the given criteria.  A bit fiddly, but the results are good!
+Well done for making it this far!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_more_on_visualising_data_in_matplotlib">6.2. More on visualising data in Matplotlib</h3>
+<div class="paragraph">
+<p>In this section we will work a bit more with python-based data visualisation.</p>
+</div>
+<div class="sect3">
+<h4 id="_get_the_data_and_scripts">6.2.1. Get the data and scripts</h4>
+<div class="paragraph">
+<p>Data files for these exercises can be copied from ~ressery/NMDM on linux.</p>
+</div>
+<div class="paragraph">
+<p>If you have not cloned the data for this course, you can do so with</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git clone https://github.com/simon-m-mudd/NMDM_files.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you have already cloned this repository, you should be able to update it to the latest version by going into the repository folder on your local machine and typing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ git pull -u origin master</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_watch_the_videos">6.2.2. Watch the videos</h4>
+<div class="paragraph">
+<p>There are a few videos to watch in support of this lesson:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The introductory video: <a href="http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mp4" class="bare">http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mp4</a> or <a href="http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mov" class="bare">http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mov</a></p>
+</li>
+<li>
+<p>Video on plotting 2D data: <a href="http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mp4" class="bare">http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mp4</a> or <a href="http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mov" class="bare">http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mov</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If you clone the data repository your directories holding the data files and scripts will be different than in the video. You will need to adjust your directories accordingly.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_plot_the_data">6.2.3. Plot the data</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, copy (or link) file Tay1993.txt and write a Python script to make a figure with a different line for the daily flow in each month of the year. It will be much neater if you use a loop to do this rather than repeating the same code 12 times; see <a href="https://docs.python.org/2/tutorial/controlflow.html" class="bare">https://docs.python.org/2/tutorial/controlflow.html</a> if you don’t know how to do that. If you label each line using</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">plt.plot(days, flow, label=month_name)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and put</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">plt.legend()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>before showing the plot, the lines will be labelled to show which is which; month_name is a string that you could put in by hand or you could get from the calendar module.</p>
+</div>
+</li>
+<li>
+<p>Make a separate subplot of the flow for each month of the year. Note that the subplot number can be a variable, e.g.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">plt.subplot(4,3,i)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>with <code>i=1</code> giving the top left subplot (not <code>i=0</code> as you might expect from Python) and <code>i=12</code> the bottom right.
+You might want to make the figure bigger to fit all of these subplots in, which you can do using</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">plt.figure(figsize=(xsize, ysize))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The default size is 8 × 6 inches. If the labels are now overlapping, adding</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">plt.tight_layout()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>before showing the plot will adjust the spacing to make room.</p>
+</div>
+</li>
+<li>
+<p>The file <code>NYair.txt</code> contains measurements of ozone concentration, solar radiation,
 daily maximum temperature and wind speed in New York,
 with two header lines saying which column is which and which units the variables are measured in.
 Make scatter plots for every pair of variables, paying attention to the labelling of the axes and the spacing of the subplots (you will be able to write compact code for this example using loops if you read in the whole array rather than reading the columns separately).
-The command
-+
-[source,python]
-----
-print np.corrcoeff(data, rowvar=0)
-----
-will print a correlation matrix showing which variables are most strongly related.
-To take this further, you could fit regression lines to the scatter plots or make a multiple regression model to predict ozone pollution from meteorological variables:
-+
-*https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html
-*http://www.datarobot.com/blog/multiple-regression-using-statsmodels
-+
-. File MtStHelens.txt contains an 800×800 grid of elevations at 20 m horizontal spacing for Mount Saint Helens. Use this to make a shaded relief map and experiment with different elevation and azimuth angles for the illumination source. There is an example of how to do this at http://matplotlib.org/examples/pylab_examples/shading_example.html.
-+
-. The files `Psurf.txt`, `Uwind.txt` and `Vwind.txt` contain forecasts of the surface pressure (hPa)
+The command</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">print np.corrcoeff(data, rowvar=0)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>will print a correlation matrix showing which variables are most strongly related.
+To take this further, you could fit regression lines to the scatter plots or make a multiple regression model to predict ozone pollution from meteorological variables:</p>
+</div>
+<div class="paragraph">
+<p>*https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html
+*http://www.datarobot.com/blog/multiple-regression-using-statsmodels</p>
+</div>
+</li>
+<li>
+<p>File MtStHelens.txt contains an 800×800 grid of elevations at 20 m horizontal spacing for Mount Saint Helens. Use this to make a shaded relief map and experiment with different elevation and azimuth angles for the illumination source. There is an example of how to do this at <a href="http://matplotlib.org/examples/pylab_examples/shading_example.html" class="bare">http://matplotlib.org/examples/pylab_examples/shading_example.html</a>.</p>
+</li>
+<li>
+<p>The files <code>Psurf.txt</code>, <code>Uwind.txt</code> and <code>Vwind.txt</code> contain forecasts of the surface pressure (hPa)
 and westerly and southerly components of the wind (m s–1) at 10 m height over the North Atlantic on 1 September 2010.
 Plot these files individually and then combine them in a single plot with colours for wind speed,
 arrows for wind vectors and contours for pressure (the Met Office uses a 4 hPa contour interval for surface pressure charts).
-Select a nice colour map for the wind speeds from http://matplotlib.org/users/colormaps.html and add a colour bar.
+Select a nice colour map for the wind speeds from <a href="http://matplotlib.org/users/colormaps.html" class="bare">http://matplotlib.org/users/colormaps.html</a> and add a colour bar.
 You will want to add coastlines if plotting fields for larger geographic areas, which raises the problem of matching the coastlines to the projection used for your data. The matplotlib basemap toolkit can handle all of the common map projections, and several uncommon ones.
-http://matplotlib.org/basemap/users/mapsetup.html
-
-.Sea temperature
-image::images/Sea_temp.png[Sea temperature]
-
-
-== Summary
-
-This chapter has gone through the basics of plotting data using matplotlib.
+<a href="http://matplotlib.org/basemap/users/mapsetup.html" class="bare">http://matplotlib.org/basemap/users/mapsetup.html</a></p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Sea_temp.png" alt="Sea temperature">
+</div>
+<div class="title">Figure 4. Sea temperature</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary_3">7. Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter has gone through the basics of plotting data using matplotlib.
 From here, you can start modifying your scripts,
-or trying to create new plots by follwing the http://matplotlib.org/gallery.html[examples on the matplotlib website].
-
-[appendix]
-== Software
-
-There are quite a few different components you need to get working on your system to perform the examples in this book (sorry!).
+or trying to create new plots by follwing the <a href="http://matplotlib.org/gallery.html">examples on the matplotlib website</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_software">Appendix A: Software</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are quite a few different components you need to get working on your system to perform the examples in this book (sorry!).
 Some of these are essential, and some are optional and included for completeness.
-In the following appendices, instructions for getting them installed on &lt;&lt;Setting up on Windows,Windows&gt;&gt;
-or &lt;&lt;Setting up on Linux,Linux&gt;&gt; are included. Since the author of this book does not have any computers running on friut-based operating system,
-I'm afraid instructions for getting the software working on OSX will require a bit of homework,
-but in theory installation on such systems should be similar to installation on Linux systems.
-
-WARNING: The recommended configuration is to set up a virtual machine running Linux.
+In the following appendices, instructions for getting them installed on <a href="#_setting_up_on_windows">Windows</a>
+or <a href="#_setting_up_on_linux">Linux</a> are included. Since the author of this book does not have any computers running on friut-based operating system,
+I&#8217;m afraid instructions for getting the software working on OSX will require a bit of homework,
+but in theory installation on such systems should be similar to installation on Linux systems.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The recommended configuration is to set up a virtual machine running Linux.
 This might seem a bit daunting if you have never used Linux before. Just the fact that you need to download an disk image of an operating system like Ubuntu that is 1Gb is slightly frightening.
 However, although installing things in Windows will lead to high levels of frustration and anxiety.
 It can be done (and the authors have done it), but that is a hard and trying road not for the faint of heart.
-
-=== Essentials
-
-The following tools are core to the contents of this book,
-and will need to be installed before you can work on the exercises in the book.
-
-==== Git
-
-[Git] is version control software. It helps you keep track of changes to your scripts, notes, papers, etc.
-It also facilitates communication and collaboration through the online communities https://github.com/[github] and https://bitbucket.org/[bitbucket].
-
-==== Python
-
-Python is a programming language used by many scientists to visualize data and crunch numbers. You can also use it to automate data management.
-
-You will need:
-
-. The https://www.python.org/[python programming language]
-.. http://www.scipy.org/[Scipy], for scientific python. It includes lots of useful packages like
-... http://www.numpy.org/[Numpy] for fast numerics.
-... http://matplotlib.org/[Matplotlib] for plotting.
-... http://pandas.pydata.org/[Pandas] for data analysis.
-.. https://pypi.python.org/pypi/pip[pip] for python package management.
-
-==== R
-
-https://www.r-project.org/[R] is a program and a programming language for statistical analysis. Compared with the other packages you will need, *R* is quite painless to install on your computer! Just download and install!
-
-
-=== Useful extras
-
-You could find these tools useful. In particular, my documentation is written using something called http://asciidoctor.org/[asciidoctor], which is implemented in a programming language called Ruby.
-
-==== A virtual machine
-
-This isn't exactly optional software, but rather what you might use if it becomes too much trouble to install things on either a *Windows* or an *OS X* operating system.
-A https://en.wikipedia.org/wiki/Virtual_machine[virtual machine] is software that allows you to emulate an operating system within another operating systems
-(for example, you can create a Linux operating system within a Windows computer).
-
-The software tools described in this book are all rather easy to install on a Linux system,
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_essentials">A.1. Essentials</h3>
+<div class="paragraph">
+<p>The following tools are core to the contents of this book,
+and will need to be installed before you can work on the exercises in the book.</p>
+</div>
+<div class="sect3">
+<h4 id="_git">A.1.1. Git</h4>
+<div class="paragraph">
+<p>[Git] is version control software. It helps you keep track of changes to your scripts, notes, papers, etc.
+It also facilitates communication and collaboration through the online communities <a href="https://github.com/">github</a> and <a href="https://bitbucket.org/">bitbucket</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_python">A.1.2. Python</h4>
+<div class="paragraph">
+<p>Python is a programming language used by many scientists to visualize data and crunch numbers. You can also use it to automate data management.</p>
+</div>
+<div class="paragraph">
+<p>You will need:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <a href="https://www.python.org/">python programming language</a></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><a href="http://www.scipy.org/">Scipy</a>, for scientific python. It includes lots of useful packages like</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><a href="http://www.numpy.org/">Numpy</a> for fast numerics.</p>
+</li>
+<li>
+<p><a href="http://matplotlib.org/">Matplotlib</a> for plotting.</p>
+</li>
+<li>
+<p><a href="http://pandas.pydata.org/">Pandas</a> for data analysis.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><a href="https://pypi.python.org/pypi/pip">pip</a> for python package management.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_r">A.1.3. R</h4>
+<div class="paragraph">
+<p><a href="https://www.r-project.org/">R</a> is a program and a programming language for statistical analysis. Compared with the other packages you will need, <strong>R</strong> is quite painless to install on your computer! Just download and install!</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_useful_extras">A.2. Useful extras</h3>
+<div class="paragraph">
+<p>You could find these tools useful. In particular, my documentation is written using something called <a href="http://asciidoctor.org/">asciidoctor</a>, which is implemented in a programming language called Ruby.</p>
+</div>
+<div class="sect3">
+<h4 id="_a_virtual_machine">A.2.1. A virtual machine</h4>
+<div class="paragraph">
+<p>This isn&#8217;t exactly optional software, but rather what you might use if it becomes too much trouble to install things on either a <strong>Windows</strong> or an <strong>OS X</strong> operating system.
+A <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machine</a> is software that allows you to emulate an operating system within another operating systems
+(for example, you can create a Linux operating system within a Windows computer).</p>
+</div>
+<div class="paragraph">
+<p>The software tools described in this book are all rather easy to install on a Linux system,
 and for other systems some components are rather tricky to get working.
-It therefore can be advantageous to run the tools described in this book within a virtual machine.
-
-http://www.howtogeek.com/196060/beginner-geek-how-to-create-and-use-virtual-machines/[Several options exist].
-My Windows computer has a virtual Linux system installed with the https://www.vmware.com/products/player/[VMware player] but you do have to find the section on `personal use` to get the free version.
-Another option is the https://www.virtualbox.org/[VirtualBox] system.
-
-
-==== Ruby
-
-Ruby is a programming language used frequently by web developers and has many package for building documentation and automating collection of data over the internet.
+It therefore can be advantageous to run the tools described in this book within a virtual machine.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.howtogeek.com/196060/beginner-geek-how-to-create-and-use-virtual-machines/">Several options exist</a>.
+My Windows computer has a virtual Linux system installed with the <a href="https://www.vmware.com/products/player/">VMware player</a> but you do have to find the section on <code>personal use</code> to get the free version.
+Another option is the <a href="https://www.virtualbox.org/">VirtualBox</a> system.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ruby">A.2.2. Ruby</h4>
+<div class="paragraph">
+<p>Ruby is a programming language used frequently by web developers and has many package for building documentation and automating collection of data over the internet.
 In this book we will really only use it for documentation, but there is a large ecosystem of open source tools available in Ruby.
-It hasn't been adopted to a great extent by the scientific community but you may still find useful tools, particularly if you are gathering online information.
-
-You will need:
-
-. The https://www.ruby-lang.org/en/[Ruby] programming language
-.. https://rubygems.org/[Rubygems] for updating ruby.
-.. http://bundler.io/[bumdler] for managing updates and making sure scripts are up to date.
-.. http://rubyinstaller.org/add-ons/devkit/[RubyDev kit] which is needed for some other Ruby packages.
-.. http://asciidoctor.org/[asciidoctor] for making notes, documentation and books.
-. In addition you will need https://nodejs.org/[Node.js] for some of the Ruby tools to work.
-
-==== c++ and fortran
-
-A number of scientific programs are written in these languages so information on how to get them working on your windows machine is incluided here for completeness.
-
-To get these working you will need
-
-. The compiler. This is what translates the program into something the computer can understand.
-. The tool `make`, which automates building programs.
-. The tool `gdb`. which stands for gnu debugger, a tool for debugging code.
-. The tool `gprof`, which is a profiler: it allows you to see which parts of your code are using the most computational resources.
-
-[appendix]
-== Setting up on Windows
-
-For the kind of scientific tools we will be using, Windows can sometimes be a bit difficult,
+It hasn&#8217;t been adopted to a great extent by the scientific community but you may still find useful tools, particularly if you are gathering online information.</p>
+</div>
+<div class="paragraph">
+<p>You will need:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <a href="https://www.ruby-lang.org/en/">Ruby</a> programming language</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><a href="https://rubygems.org/">Rubygems</a> for updating ruby.</p>
+</li>
+<li>
+<p><a href="http://bundler.io/">bumdler</a> for managing updates and making sure scripts are up to date.</p>
+</li>
+<li>
+<p><a href="http://rubyinstaller.org/add-ons/devkit/">RubyDev kit</a> which is needed for some other Ruby packages.</p>
+</li>
+<li>
+<p><a href="http://asciidoctor.org/">asciidoctor</a> for making notes, documentation and books.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In addition you will need <a href="https://nodejs.org/">Node.js</a> for some of the Ruby tools to work.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_c_and_fortran">A.2.3. c++ and fortran</h4>
+<div class="paragraph">
+<p>A number of scientific programs are written in these languages so information on how to get them working on your windows machine is incluided here for completeness.</p>
+</div>
+<div class="paragraph">
+<p>To get these working you will need</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The compiler. This is what translates the program into something the computer can understand.</p>
+</li>
+<li>
+<p>The tool <code>make</code>, which automates building programs.</p>
+</li>
+<li>
+<p>The tool <code>gdb</code>. which stands for gnu debugger, a tool for debugging code.</p>
+</li>
+<li>
+<p>The tool <code>gprof</code>, which is a profiler: it allows you to see which parts of your code are using the most computational resources.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_up_on_windows">Appendix B: Setting up on Windows</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For the kind of scientific tools we will be using, Windows can sometimes be a bit difficult,
 since many scientific developers work in Linux and so installation for their software is easiest in a Linux environment.
-However, you can get Windows to behave a bit like Linux which will make your life easier for the purposes of installing the required software for the examples here.
-
-Alternatively, you can &lt;&lt;Turning your windows machine into a Linux machine,get a "virtual" Linux machine running on your Windows machine&gt;&gt;.
-
-*Let me type that in bold text: it will be far easier to do things in a Linux environment than in a Windows environment.
-I strongly encourage you to &lt;&lt;Turning your windows machine into a Linux machine,build a virtual machine&gt;&gt;.*
-
-=== Working with the powershell
-
-Much of what we do will be through a powershell window.
+However, you can get Windows to behave a bit like Linux which will make your life easier for the purposes of installing the required software for the examples here.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can <a href="#_turning_your_windows_machine_into_a_linux_machine">get a "virtual" Linux machine running on your Windows machine</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Let me type that in bold text: it will be far easier to do things in a Linux environment than in a Windows environment.
+I strongly encourage you to <a href="#_turning_your_windows_machine_into_a_linux_machine">build a virtual machine</a>.</strong></p>
+</div>
+<div class="sect2">
+<h3 id="_working_with_the_powershell">B.1. Working with the powershell</h3>
+<div class="paragraph">
+<p>Much of what we do will be through a powershell window.
 This is a text-based interface into your windows system that allows you to install software and run scripts and code.
-It functions like a linux terminal.
-
-First of all, you need to get a powershell running. On my windows version, you just type *powershell* into the bit of Windows where you searh for files or programs (it varies based on what windows system you are using).
-You should be able to find a way to get a powershell on your version of windows through the power of the internet.
-
-==== Starting a powershell session
-
-First, you will need to open an administrator powershell.
-In your powershell window, type
-
-  PS&gt; Start-Process powershell -Verb runAs
-
-NOTE: The `PS&gt;` denotes the powershell propmpt.
-
-WARNING: You might not have administrator priviliges on your computer.
+It functions like a linux terminal.</p>
+</div>
+<div class="paragraph">
+<p>First of all, you need to get a powershell running. On my windows version, you just type <strong>powershell</strong> into the bit of Windows where you searh for files or programs (it varies based on what windows system you are using).
+You should be able to find a way to get a powershell on your version of windows through the power of the internet.</p>
+</div>
+<div class="sect3">
+<h4 id="_starting_a_powershell_session">B.1.1. Starting a powershell session</h4>
+<div class="paragraph">
+<p>First, you will need to open an administrator powershell.
+In your powershell window, type</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>PS&gt; Start-Process powershell -Verb runAs</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>PS&gt;</code> denotes the powershell propmpt.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+You might not have administrator priviliges on your computer.
 In that case you will need to convince the aministraotr to install everything for you,
-or you can ask them to install a linux virtual machine, which is described in the section &lt;&lt;Turning-your-windows-machine-into-a-linux-machine&gt;&gt;.
-
-
-=== Windows installation programs
-
-Take a deep breath. I am afraid this is going to take a while.
+or you can ask them to install a linux virtual machine, which is described in the section <a href="#Turning-your-windows-machine-into-a-linux-machine">[Turning-your-windows-machine-into-a-linux-machine]</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_windows_installation_programs">B.2. Windows installation programs</h3>
+<div class="paragraph">
+<p>Take a deep breath. I am afraid this is going to take a while.
 It can be done, but you may psychological treatment before the end.
-You might consider just installing a &lt;&lt;Turning your windows machine into a Linux machine,Linux Virtual machine&gt;&gt; instead of trying to get the software installed within a Windows environment.
-
-==== Package management
-
-If you are a windows user, you are probably used to installing software on windows the traditional way using installation files.
+You might consider just installing a <a href="#_turning_your_windows_machine_into_a_linux_machine">Linux Virtual machine</a> instead of trying to get the software installed within a Windows environment.</p>
+</div>
+<div class="sect3">
+<h4 id="_package_management">B.2.1. Package management</h4>
+<div class="paragraph">
+<p>If you are a windows user, you are probably used to installing software on windows the traditional way using installation files.
 The tools we are using involve many linked programs, and installing them by downloading windows installers from their respective websites can be tiresome.
-An alternative is to use something called a https://en.wikipedia.org/wiki/Package_manager[machine package manager], which makes installing software a bit less of a hassle.
-
-===== Chocolatey package manager
-
-Here we will use a machine package manager built specifically for windows called https://chocolatey.org/[chocolatey].
-
-To install *chocolatey*, type in the following in your **administrative** powershell:
-
-  PS&gt; iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
-
-You then just have to sit back and wait while it installs.
-
-NOTE: To test if chocolatey is working after the installation, type `choco -v`. If you get an error saying it is not a recognized name of a cmdlet or path, then simply close your powershell windows and open new ones.
-
-Once you have chocolatey installed, you can get the additional packages that are required for the tools we use in this book by using the `choco` command.
-
-==== Git
-
-You can install git by downloading the installation package from the https://desktop.github.com/[Github desktop] website.
-Alternatively, you can use chocolatey:
-
-[source,consol]
-----
-PS&gt; choco install git
-----
-
-You can check if it works in the command line by calling
-
-[source,consol]
-----
-PS&gt; git --version
-----
-
-If you install git desktop, you will get a https://git-scm.com/book/en/v2/Git-in-Other-Environments-Git-in-Powershell[git powershell] link on your desktop.
+An alternative is to use something called a <a href="https://en.wikipedia.org/wiki/Package_manager">machine package manager</a>, which makes installing software a bit less of a hassle.</p>
+</div>
+<div class="sect4">
+<h5 id="_chocolatey_package_manager">Chocolatey package manager</h5>
+<div class="paragraph">
+<p>Here we will use a machine package manager built specifically for windows called <a href="https://chocolatey.org/">chocolatey</a>.</p>
+</div>
+<div class="paragraph">
+<p>To install <strong>chocolatey</strong>, type in the following in your <strong>administrative</strong> powershell:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>PS&gt; iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You then just have to sit back and wait while it installs.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To test if chocolatey is working after the installation, type <code>choco -v</code>. If you get an error saying it is not a recognized name of a cmdlet or path, then simply close your powershell windows and open new ones.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Once you have chocolatey installed, you can get the additional packages that are required for the tools we use in this book by using the <code>choco</code> command.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_git_2">B.2.2. Git</h4>
+<div class="paragraph">
+<p>You can install git by downloading the installation package from the <a href="https://desktop.github.com/">Github desktop</a> website.
+Alternatively, you can use chocolatey:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-consol" data-lang="consol">PS&gt; choco install git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can check if it works in the command line by calling</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-consol" data-lang="consol">PS&gt; git --version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you install git desktop, you will get a <a href="https://git-scm.com/book/en/v2/Git-in-Other-Environments-Git-in-Powershell">git powershell</a> link on your desktop.
 This powershell is quite useful when using git since it does things like highlights files in different colours depending on status
-(e.g., if they have been modified or not or of they are being tracked).
-
-=== Python
-
-Python in Windows can be a little bit more difficult to manage than python in Linux.
-You can get python through chocolatey, but it makes installing extra packages a bit of a pain.
-
-Instead, you probably want to install python as part of a package that includes all the handy python libraries and associated programs.
-
-The popular ones are:
-
-. http://python-xy.github.io/[Python(x,y)] contains all manner of useful packages for scientists.
+(e.g., if they have been modified or not or of they are being tracked).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_python_2">B.3. Python</h3>
+<div class="paragraph">
+<p>Python in Windows can be a little bit more difficult to manage than python in Linux.
+You can get python through chocolatey, but it makes installing extra packages a bit of a pain.</p>
+</div>
+<div class="paragraph">
+<p>Instead, you probably want to install python as part of a package that includes all the handy python libraries and associated programs.</p>
+</div>
+<div class="paragraph">
+<p>The popular ones are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="http://python-xy.github.io/">Python(x,y)</a> contains all manner of useful packages for scientists.
 I have found, however, that updating this is not so straightforward;
-if you have a look at the http://python-xy.github.io/downloads.html[Python(x,y) downlaods page] you will see that the updates have dependencies that dead end,
+if you have a look at the <a href="http://python-xy.github.io/downloads.html">Python(x,y) downlaods page</a> you will see that the updates have dependencies that dead end,
 so if you are on, say, Python(x,y) 2.6.X you will need to reinstall Python(x,y) 2.7.X if you want continued updates.
-Python(x,y) is also huge: it includes *many* python packages, most of which you will never use.
-. http://winpython.sourceforge.net/[Winpython] is another python package that has a nice updating interface.
-. https://store.continuum.io/cshop/anaconda/[Anaconda] is another scientific package that includes all sorts of smaller packages.
-It seems to be able to handle updates better than Python(x,y) through its `conda` updating interface.
-. http://conda.pydata.org/miniconda.html[miniconda] uses the same `conda` updating interface as `anaconda`, the difference is that with `miniconda` things arene't installed automatically,
-so you will have to figure out what you want and then use `conda` to install new packages (e.g., pandas, scipy, gdal, etc.)
-
-=== R
-
-Luckily, R has an installation package for Windows.
-You can just download it from the https://cran.r-project.org/bin/windows/base/[R website].
-
-=== Ruby
-
-You can check to see if Ruby is installed on your system by typing
-
-[source,consol]
-----
-  PS&gt; ruby -v
-----
-
-and you can check the Rubygems version with
-
-[source,consol]
-----
-  PS&gt; gem -v
-----
-
-==== Install Ruby using choco
-
-If these are not installed, install them using &lt;&lt;Chocolatey package manager,chocolatey&gt;&gt;
-(in an &lt;&lt;Starting a powershell session,administrator powershell&gt;&gt;).
-While you are at it, install the RubyDev and Node.js package:
-
-[source,consol]
-----
-  PS&gt; choco install ruby
+Python(x,y) is also huge: it includes <strong>many</strong> python packages, most of which you will never use.</p>
+</li>
+<li>
+<p><a href="http://winpython.sourceforge.net/">Winpython</a> is another python package that has a nice updating interface.</p>
+</li>
+<li>
+<p><a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a> is another scientific package that includes all sorts of smaller packages.
+It seems to be able to handle updates better than Python(x,y) through its <code>conda</code> updating interface.</p>
+</li>
+<li>
+<p><a href="http://conda.pydata.org/miniconda.html">miniconda</a> uses the same <code>conda</code> updating interface as <code>anaconda</code>, the difference is that with <code>miniconda</code> things arene&#8217;t installed automatically,
+so you will have to figure out what you want and then use <code>conda</code> to install new packages (e.g., pandas, scipy, gdal, etc.)</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_r_2">B.4. R</h3>
+<div class="paragraph">
+<p>Luckily, R has an installation package for Windows.
+You can just download it from the <a href="https://cran.r-project.org/bin/windows/base/">R website</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ruby_2">B.5. Ruby</h3>
+<div class="paragraph">
+<p>You can check to see if Ruby is installed on your system by typing</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-consol" data-lang="consol">  PS&gt; ruby -v</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and you can check the Rubygems version with</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-consol" data-lang="consol">  PS&gt; gem -v</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_install_ruby_using_choco">B.5.1. Install Ruby using choco</h4>
+<div class="paragraph">
+<p>If these are not installed, install them using <a href="#_chocolatey_package_manager">chocolatey</a>
+(in an <a href="#_starting_a_powershell_session">administrator powershell</a>).
+While you are at it, install the RubyDev and Node.js package:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-consol" data-lang="consol">  PS&gt; choco install ruby
   PS&gt; choco install rubygems
   PS&gt; choco install ruby2.devkit
-  PS&gt; choco install node.js
-----
-
-==== Fix rubygems on Windows
-
-At the time of this writing, rubygems is "broken" on Windows:
+  PS&gt; choco install node.js</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_fix_rubygems_on_windows">B.5.2. Fix rubygems on Windows</h4>
+<div class="paragraph">
+<p>At the time of this writing, rubygems is "broken" on Windows:
 if you try to install a gem file you will get an error that says you cannot make an SSL connection.
-You will need to fix this problem by https://gist.github.com/luislavena/f064211759ee0f806c88[copying a trust certificate into you rubygems folder].
-
-. First download the file https://raw.githubusercontent.com/rubygems/rubygems/master/lib/rubygems/ssl_certs/AddTrustExternalCARoot-2048.pem[AddTrustExternalCARoot-2048.pem].
-
-WARNING: It seems some browsers add formatting to this file when downloaded (Chrome does this, for example).
+You will need to fix this problem by <a href="https://gist.github.com/luislavena/f064211759ee0f806c88">copying a trust certificate into you rubygems folder</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First download the file <a href="https://raw.githubusercontent.com/rubygems/rubygems/master/lib/rubygems/ssl_certs/AddTrustExternalCARoot-2048.pem">AddTrustExternalCARoot-2048.pem</a>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+It seems some browsers add formatting to this file when downloaded (Chrome does this, for example).
 I only managed to get this fix to work after downloading the file using Internet Explorer.
-
-[start=2]
-. Next, find the location of your gems installation:
-
-[source,consol]
-----
-  PS&gt; gem which rubygems
-  C:/Ruby21/lib/ruby/2.1.0/rubygems.rb
-----
-
-. Go to the folder and then go into the SLL_certs subfolder.
-In this case it is at: `C:/Ruby21/lib/ruby/2.1.0/rubygems/SSL_certs`.
-Copy the `.pem` file into this folder. Rubygems should now work.
-
-==== Install some gems
-
-From here we can install some useful ruby gems.
-http://asciidoctor.org/[Asciidoctor] is really great for writing documentation.
-http://bundler.io/[Bundler] is useful for keeping Ruby packages up to date.
-
-[source,consol]
-----
-  PS&gt; gem install asciidoctor
-  PS&gt; gem install bundler
-----
-
-=== C++ and Fortran
-
-There are several options for installing c++ and fortran compilers on your Windows machine.
-Two popular options, http://www.mingw.org/[Mingw] and https://www.cygwin.com/Cygwin] install something that behaves a bit like a Linux operating system
-(&lt;&lt;Turning your windows machine into a Linux machine,but perhaps it is easier just to set up Linux within your Windows computer?&gt;&gt;).
-
-Another option for c++ is to install the developer toolkit from Microsoft, https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx[Visual Studio express.
-You can install the 2013 version using chocolatey:
-
-[source,consol]
-----
-  PS&gt; choco install visualstudioexpress2013windowsdesktop
-----
-
-You can also install the software by downloading from the https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx[Visual Studio website].
-
-==== Cygwin
-
-To install https://www.cygwin.com/[Cygwin], you must first install the program
-https://www.cygwin.com/setup-x86.exe[setup-x86.exe] for a 32 bit system or
-https://www.cygwin.com/setup-x86_64.exe[setup-x86_64] for a 64 bit system.
-
-When you run `setup-*.exe`, you will get a window that looks like this:
-
-.Cygwin setup.
-image::images/cygwin_setup.jpg[Cygwin setup window]
-
-Scroll down the the `devel` menu and select the following packages:
-
-  binutuls
-  gcc core
-  g++
-  gfortran
-  gdb
-  make
-
-You can also install all sorts of other things from cygwin like *Ruby*, *Git* and *Python*, but you don't need to do that if you've already installed them.
-In fact, you might want to make sure *git* is not selected if you have installed the Git powershell from the github desktop application.
-
-Once you have selected the things you need, select *next*.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>Next, find the location of your gems installation:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-consol" data-lang="consol">  PS&gt; gem which rubygems
+  C:/Ruby21/lib/ruby/2.1.0/rubygems.rb</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to the folder and then go into the SLL_certs subfolder.
+In this case it is at: <code>C:/Ruby21/lib/ruby/2.1.0/rubygems/SSL_certs</code>.
+Copy the <code>.pem</code> file into this folder. Rubygems should now work.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_install_some_gems">B.5.3. Install some gems</h4>
+<div class="paragraph">
+<p>From here we can install some useful ruby gems.
+<a href="http://asciidoctor.org/">Asciidoctor</a> is really great for writing documentation.
+<a href="http://bundler.io/">Bundler</a> is useful for keeping Ruby packages up to date.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-consol" data-lang="consol">  PS&gt; gem install asciidoctor
+  PS&gt; gem install bundler</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_c_and_fortran_2">B.6. C++ and Fortran</h3>
+<div class="paragraph">
+<p>There are several options for installing c++ and fortran compilers on your Windows machine.
+Two popular options, <a href="http://www.mingw.org/">Mingw</a> and <a href="https://www.cygwin.com/Cygwin" class="bare">https://www.cygwin.com/Cygwin</a>] install something that behaves a bit like a Linux operating system
+(<a href="#_turning_your_windows_machine_into_a_linux_machine">but perhaps it is easier just to set up Linux within your Windows computer?</a>).</p>
+</div>
+<div class="paragraph">
+<p>Another option for c++ is to install the developer toolkit from Microsoft, <a href="https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx" class="bare">https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx</a>[Visual Studio express.
+You can install the 2013 version using chocolatey:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-consol" data-lang="consol">  PS&gt; choco install visualstudioexpress2013windowsdesktop</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also install the software by downloading from the <a href="https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx">Visual Studio website</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_cygwin">B.6.1. Cygwin</h4>
+<div class="paragraph">
+<p>To install <a href="https://www.cygwin.com/">Cygwin</a>, you must first install the program
+<a href="https://www.cygwin.com/setup-x86.exe">setup-x86.exe</a> for a 32 bit system or
+<a href="https://www.cygwin.com/setup-x86_64.exe">setup-x86_64</a> for a 64 bit system.</p>
+</div>
+<div class="paragraph">
+<p>When you run <code>setup-*.exe</code>, you will get a window that looks like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cygwin_setup.jpg" alt="Cygwin setup window">
+</div>
+<div class="title">Figure 5. Cygwin setup.</div>
+</div>
+<div class="paragraph">
+<p>Scroll down the the <code>devel</code> menu and select the following packages:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>binutuls
+gcc core
+g++
+gfortran
+gdb
+make</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also install all sorts of other things from cygwin like <strong>Ruby</strong>, <strong>Git</strong> and <strong>Python</strong>, but you don&#8217;t need to do that if you&#8217;ve already installed them.
+In fact, you might want to make sure <strong>git</strong> is not selected if you have installed the Git powershell from the github desktop application.</p>
+</div>
+<div class="paragraph">
+<p>Once you have selected the things you need, select <strong>next</strong>.
 You might need to install a bunch of additional packages because your selected packages depend on them.
-If this is your first time installing cygwin go and get a drink or have lunch since installation will take some time.
-
-=== Turning your windows machine into a Linux machine
-
-The header of this section is a bit misleading,
-what you are really going to do is use software to create a https://en.wikipedia.org/wiki/Virtual_machine[virtual] version of Linux within your Windows computer.
-
-There are a number of options, popular ones include:
-
-  * http://www.parallels.com/uk/[Parallels] This software is proprietary.
-  * http://www.vmware.com/[VMWare] There are several flavours of this. The free version is VMware Player.
-  * https://www.virtualbox.org[VirtualBox] This is open source.
-
-Here I'll walk you through setting up Linux using VMware.
+If this is your first time installing cygwin go and get a drink or have lunch since installation will take some time.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_turning_your_windows_machine_into_a_linux_machine">B.7. Turning your windows machine into a Linux machine</h3>
+<div class="paragraph">
+<p>The header of this section is a bit misleading,
+what you are really going to do is use software to create a <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual</a> version of Linux within your Windows computer.</p>
+</div>
+<div class="paragraph">
+<p>There are a number of options, popular ones include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.parallels.com/uk/">Parallels</a> This software is proprietary.</p>
+</li>
+<li>
+<p><a href="http://www.vmware.com/">VMWare</a> There are several flavours of this. The free version is VMware Player.</p>
+</li>
+<li>
+<p><a href="https://www.virtualbox.org">VirtualBox</a> This is open source.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here I&#8217;ll walk you through setting up Linux using VMware.
 It just happened to be the one I tried first and it works, please do not take this as an endorsement.
-One disadvantage is it doesn't seem to have an Apple version. If you use Apple you'll need to try to go through a similar process using `VirtualBox &lt;https://www.virtualbox.org/&gt;`_,
-which does have a version for Mac operating systems.
-
-But, here is how you set up the VMware player.
-You will need a reasonable amount of storage and RAM. So a very old computer won't work.
-If you've got a computer purchased in the last few years things will probably be fine.
+One disadvantage is it doesn&#8217;t seem to have an Apple version. If you use Apple you&#8217;ll need to try to go through a similar process using `VirtualBox &lt;<a href="https://www.virtualbox.org/&gt;`_" class="bare">https://www.virtualbox.org/&gt;`_</a>,
+which does have a version for Mac operating systems.</p>
+</div>
+<div class="paragraph">
+<p>But, here is how you set up the VMware player.
+You will need a reasonable amount of storage and RAM. So a very old computer won&#8217;t work.
+If you&#8217;ve got a computer purchased in the last few years things will probably be fine.
 You will also need a reasonable amount of storage on your hard disk.
-The virtual machine permanently takes up some component of your hard disk.
-
-. First, download VMware player. The download is currently `here &lt;https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_player/7_0&gt;`_.
-. Run the installation package. Brew a cup of tea while you wait for it to install. `Maybe surf the internet a bit &lt;http://www.bbc.co.uk/sport/football/teams/hibernian&gt;`_.
-. **BEFORE** you set up a virtual machine, you will need to download a linux operating system!
-.. We are going to use `Ubuntu &lt;http://www.ubuntu.com/&gt;`_, just because it is stable, popular and has good documentation.
-WARNING: I first attempted an installation with 64-bit Ubuntu, but it turns out my computer doesn't allow guest 64 bit operating systems.
-         To fix this I just downloaded the 32 bit version of Ubuntu, which worked.
-.. Find the downloads link and download the latest version. It will be an `iso` disk image. This will take a while. Put that time to `good use &lt;https://www.youtube.com/user/HibernianTV&gt;`_.
-. Once that finishes downloading, you can set up your virtual box. First, open VMware Player.
-.. Now click on the "Create a New Virtual Machine" option.
-. It will ask you how you want to install the operating system. Tell it you want to use the Ubuntu disk image you just downloaded:
-. You will need to add some username information, and then you will have to pick a location for the Virtual Machine. I made a folder called `c:\Ubuntu` for it:
-. Now allocate disk space to the virtual machine. **This disk space cannot be used by your windows operating system!!**. I decided to use a single file to store the disk since it should be faster:
-. The next page will say it is ready to create the virtual machine, but it has a default Memory (in my case 1GM) allocated. I wanted more memory so I clicked on the customize hardware button:
-This allowed me to increase the memory to 2GB. Note that this will be used when the virtual  machine is on, but when not in use the memory will revert to your original operating system.
-. You might be asked to install some VMware Linux tools. You should do this, as some things won't work if it isn't installed.
-. Installing the operating system within the virtual machine will take ages. You might schedule this task for your lunch hour, which is what I did.
-. When Ubuntu has installed, it will look for software updates. You should install these. This will also take ages. Maybe you have a book to read?
-. Finally, you should be aware that the default keyboard layout is US. Getting a different keyboard is a bit of a pain.
-.. First go to system settings.
-.. Then click on language support.
-.. It will need to install some stuff.
-.. Go to text entry.
-.. In the lower left corner click on the `+` button.
-.. Add your country's input source.
-
-=== Summary
-
-By now you should be able to pull up a powershell and call the essential programs we will be working with in this course.
-
-[appendix]
-== Setting up on Linux
-
-Setting up your system on Linux is considerably easier than setting up on Windows.
-Before doing anything, open a terminal window. The `$` symbol below indicates commands typed into the terminal window.
-
-WARNING: These commands are for *Ubuntu* and *Debian* flavors of Linux. Other flavors of Linux use different package managers, such as http://yum.baseurl.org/[yum].
-If you don't use Debian of Ubuntu, you will need to look up the installation guidelines for the programs below.
-
-=== Git
-
-To check if git is working, type
-
-  $ git --version
-
-If it isn't installed, install it with
-
-  $ sudo apt-get install git
-
-=== Python
-
-To check if it is working, just type
-
-  $ python
-
-If it is working, it will tell you the version and you will get a command prompt that looks like this:
-
-   &gt;&gt;&gt;
-
-You should have version 2.7 or above.
-
-==== Installing python
-
-If you don't have python, you should install both *python* and *pip*, which manages python packages.
-To do that type:
-
-  $ sudo apt-get install python2.7
-  $ sudo apt-get install python-pip
-
-==== Installing python packages
-
-To check if python packages are there, just try to import them. First start a python session:
-
-  $ python
-
-Then, try to import a package. For example:
-
-  &gt;&gt;&gt; import matplotlib
-
-If the package does not exist, you will get an error message like this:
-
-  Traceback (most recent call last):
-    File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-  ImportError: No module named matplotlib
-
-You can install all the packages at once with:
-
-  $ sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
-
-You can upgrade packages with the pip command:
-
-  $ pip install PackageNameHere --upgrade
-
-=== R
-
-You can check if R is working from the terminal window with:
-
-  $ R
-
-If it isn't there, you can install it with
-
-  $ sudo apt-get install R
-
-
-=== Ruby
-
-You can see if Ruby is ony your system by typing:
-
-  $ ruby -v
-
-If it isn't there, install with (this should seem routine by now):
-
-  $ sudo apt-get  install ruby-full
-
-=== c++ and fortran
-
-You can check if these are working by typing (this assumes you are using the https://gcc.gnu.org/[GNU compilers])
-
-  $ g++
-  $ gfortran
-
-You can install these with
-
-  $ sudo apt-get install g++
-  $ sudo apt-get install gfortran
-
-These seem to install `gdb` and `make`, which is convenient.
-
-=== Summary
-
-Well, you have probably spent some time installing all of these software packages so relax for a bit and enjoy the beverage of your choice!</pre>
+The virtual machine permanently takes up some component of your hard disk.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, download VMware player. The download is currently `here &lt;<a href="https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_player/7_0&gt;`_" class="bare">https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_player/7_0&gt;`_</a>.</p>
+</li>
+<li>
+<p>Run the installation package. Brew a cup of tea while you wait for it to install. `Maybe surf the internet a bit &lt;<a href="http://www.bbc.co.uk/sport/football/teams/hibernian&gt;`_" class="bare">http://www.bbc.co.uk/sport/football/teams/hibernian&gt;`_</a>.</p>
+</li>
+<li>
+<p><strong>BEFORE</strong> you set up a virtual machine, you will need to download a linux operating system!</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>We are going to use `Ubuntu &lt;<a href="http://www.ubuntu.com/&gt;`_" class="bare">http://www.ubuntu.com/&gt;`_</a>, just because it is stable, popular and has good documentation.
+WARNING: I first attempted an installation with 64-bit Ubuntu, but it turns out my computer doesn&#8217;t allow guest 64 bit operating systems.
+         To fix this I just downloaded the 32 bit version of Ubuntu, which worked.</p>
+</li>
+<li>
+<p>Find the downloads link and download the latest version. It will be an <code>iso</code> disk image. This will take a while. Put that time to `good use &lt;<a href="https://www.youtube.com/user/HibernianTV&gt;`_" class="bare">https://www.youtube.com/user/HibernianTV&gt;`_</a>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Once that finishes downloading, you can set up your virtual box. First, open VMware Player.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Now click on the "Create a New Virtual Machine" option.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>It will ask you how you want to install the operating system. Tell it you want to use the Ubuntu disk image you just downloaded:</p>
+</li>
+<li>
+<p>You will need to add some username information, and then you will have to pick a location for the Virtual Machine. I made a folder called <code>c:\Ubuntu</code> for it:</p>
+</li>
+<li>
+<p>Now allocate disk space to the virtual machine. <strong>This disk space cannot be used by your windows operating system!!</strong>. I decided to use a single file to store the disk since it should be faster:</p>
+</li>
+<li>
+<p>The next page will say it is ready to create the virtual machine, but it has a default Memory (in my case 1GM) allocated. I wanted more memory so I clicked on the customize hardware button:
+This allowed me to increase the memory to 2GB. Note that this will be used when the virtual  machine is on, but when not in use the memory will revert to your original operating system.</p>
+</li>
+<li>
+<p>You might be asked to install some VMware Linux tools. You should do this, as some things won&#8217;t work if it isn&#8217;t installed.</p>
+</li>
+<li>
+<p>Installing the operating system within the virtual machine will take ages. You might schedule this task for your lunch hour, which is what I did.</p>
+</li>
+<li>
+<p>When Ubuntu has installed, it will look for software updates. You should install these. This will also take ages. Maybe you have a book to read?</p>
+</li>
+<li>
+<p>Finally, you should be aware that the default keyboard layout is US. Getting a different keyboard is a bit of a pain.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>First go to system settings.</p>
+</li>
+<li>
+<p>Then click on language support.</p>
+</li>
+<li>
+<p>It will need to install some stuff.</p>
+</li>
+<li>
+<p>Go to text entry.</p>
+</li>
+<li>
+<p>In the lower left corner click on the <code>+</code> button.</p>
+</li>
+<li>
+<p>Add your country&#8217;s input source.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_summary_4">B.8. Summary</h3>
+<div class="paragraph">
+<p>By now you should be able to pull up a powershell and call the essential programs we will be working with in this course.</p>
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_setting_up_on_linux">Appendix C: Setting up on Linux</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Setting up your system on Linux is considerably easier than setting up on Windows.
+Before doing anything, open a terminal window. The <code>$</code> symbol below indicates commands typed into the terminal window.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+These commands are for <strong>Ubuntu</strong> and <strong>Debian</strong> flavors of Linux. Other flavors of Linux use different package managers, such as <a href="http://yum.baseurl.org/">yum</a>.
+If you don&#8217;t use Debian of Ubuntu, you will need to look up the installation guidelines for the programs below.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_git_3">C.1. Git</h3>
+<div class="paragraph">
+<p>To check if git is working, type</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ git --version</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If it isn&#8217;t installed, install it with</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo apt-get install git</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_python_3">C.2. Python</h3>
+<div class="paragraph">
+<p>To check if it is working, just type</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ python</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If it is working, it will tell you the version and you will get a command prompt that looks like this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt;&gt;&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should have version 2.7 or above.</p>
+</div>
+<div class="sect3">
+<h4 id="_installing_python">C.2.1. Installing python</h4>
+<div class="paragraph">
+<p>If you don&#8217;t have python, you should install both <strong>python</strong> and <strong>pip</strong>, which manages python packages.
+To do that type:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo apt-get install python2.7
+$ sudo apt-get install python-pip</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_installing_python_packages">C.2.2. Installing python packages</h4>
+<div class="paragraph">
+<p>To check if python packages are there, just try to import them. First start a python session:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ python</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, try to import a package. For example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt;&gt;&gt; import matplotlib</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the package does not exist, you will get an error message like this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+ImportError: No module named matplotlib</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can install all the packages at once with:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can upgrade packages with the pip command:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ pip install PackageNameHere --upgrade</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_r_3">C.3. R</h3>
+<div class="paragraph">
+<p>You can check if R is working from the terminal window with:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ R</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If it isn&#8217;t there, you can install it with</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo apt-get install R</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ruby_3">C.4. Ruby</h3>
+<div class="paragraph">
+<p>You can see if Ruby is ony your system by typing:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ ruby -v</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If it isn&#8217;t there, install with (this should seem routine by now):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo apt-get  install ruby-full</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_c_and_fortran_3">C.5. c++ and fortran</h3>
+<div class="paragraph">
+<p>You can check if these are working by typing (this assumes you are using the <a href="https://gcc.gnu.org/">GNU compilers</a>)</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ g++
+$ gfortran</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can install these with</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo apt-get install g++
+$ sudo apt-get install gfortran</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These seem to install <code>gdb</code> and <code>make</code>, which is convenient.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_summary_5">C.6. Summary</h3>
+<div class="paragraph">
+<p>Well, you have probably spent some time installing all of these software packages so relax for a bit and enjoy the beverage of your choice!</p>
 </div>
 </div>
 </div>
