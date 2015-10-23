@@ -13,10 +13,6 @@ namespace :book do
     `bundle exec asciidoctor NMDM.asc`
     puts " -- HTML output at NMDM_book.html"
 
-    puts "Converting to EPub..."
-    `bundle exec asciidoctor-epub3 NMDM.asc`
-    puts " -- Epub output at NMDM_book.epub"
-
     puts "Converting to PDF... (this one takes a while)"
     `bundle exec asciidoctor-pdf NMDM.asc`
     puts " -- PDF  output at NMDM_book.pdf"
