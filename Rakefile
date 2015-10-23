@@ -21,6 +21,14 @@ namespace :book do
     `bundle exec asciidoctor-pdf NMDM.asc`
     puts " -- PDF  output at NMDM_book.pdf"
   end
+  
+  desc 'build html book formats'
+  task :build_html => :prebuild do
+    puts "Converting to HTML..."
+    `bundle exec asciidoctor NMDM.asc`
+    puts " -- HTML output at NMDM_book.html"
+
+  end  
 end
 
 task :default => "book:build"
