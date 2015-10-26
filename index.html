@@ -589,11 +589,9 @@ the methods by which today&#8217;s research students conduct research is quite d
 </div>
 <div class="paragraph">
 <p>This book has emerged from a course that I taught as part of a doctoral training program at the University of Edinburgh.
-Students in our program had backgrounds in geology, geography, ecology, biology, and other allied fields. Their disciplinary knowledge was quite disparite.
-Regardless of discipline, however, research students need some shared tools to do research.</p>
-</div>
-<div class="paragraph">
-<p>Much of the Natural Sciences requires some understanding of computation and numeracy.</p>
+Students in our program have backgrounds in geology, geography, ecology, biology, and other allied fields. Their disciplinary knowledge is quite disparite.
+Regardless of discipline, however, research students need some shared tools to do research.
+This course is designed to provide some basic tools that serve as a starting point for studnents to learn about numeracy, modelling and data management.</p>
 </div>
 </div>
 </div>
@@ -1588,9 +1586,9 @@ plt.plot(av_mole,line,'m-')
 plt.title('Linear fit y(x)=ax+b, with a='+str('%.1f' % slope)+' and b='+str('%.1f' % intercept), fontsize = 24)</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>=====Boxplot, histogram and other stats</p>
 </div>
+<div class="sect4">
+<h5 id="_boxplot_histogram_and_other_stats">Boxplot, histogram and other stats</h5>
 <div class="paragraph">
 <p>If you want to learn more about your data, it can be very useful to plot the histogram or probability density function associated to your dataset. You can also plot the boxplots to display the median, standard deviation and other useful information.
 Try to create one (or both) of these plots, either in a subplot under your first figure, or in an embedded plot (figure within the figure).</p>
@@ -1733,12 +1731,12 @@ Before moving on, make sure that you understand what is going on in each line of
 <div class="paragraph">
 <p>Repeat this for any axes you aren’t happy with.</p>
 </div>
-<div class="paragraph">
-<p>====== Labelling</p>
-</div>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect5">
+<h6 id="_labelling">Labelling</h6>
 <div class="paragraph">
 <p>It would also be good to label the subplots with a letter, so that you can easily refer to them if you were to write a caption or within the text of a larger document.  You could do this in Inkscape or another graphics package, but it is easy with Matplotlib too.
 We are going to use the annotate tool::</p>
@@ -1802,10 +1800,8 @@ Experiment with varying the location etc. until you are happy with the results.<
 </div>
 <div class="sect5">
 <h6 id="_switching_sides">Switching sides</h6>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Now we have stacked the subplots, we have issues with overlapping labels.  This is easily fixed by alternating the axes labels between the left and right hand sides.  To label the second subplot axis on the right hand side rather than the left, use the commands</dt>
-</dl>
+<div class="paragraph">
+<p>Now we have stacked the subplots, we have issues with overlapping labels.  This is easily fixed by alternating the axes labels between the left and right hand sides.  To label the second subplot axis on the right hand side rather than the left, use the commands:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1970,10 +1966,8 @@ ax5.legend(lines_for_legend,labels,bbox_to_anchor=(1.36,0.66))</code></pre>
 </div>
 <div class="sect5">
 <h6 id="_highlighting_a_period_of_interest">Highlighting a period of interest</h6>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">The last glacial lasted from ~115ka to ~12ka.  Let’s make the final subplot more exciting by shading this time period a nice, icy cyan colour</dt>
-</dl>
+<div class="paragraph">
+<p>The last glacial lasted from ~115ka to ~12ka.  Let’s make the final subplot more exciting by shading this time period a nice, icy cyan colour:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2160,9 +2154,15 @@ The command</p>
 <p>will print a correlation matrix showing which variables are most strongly related.
 To take this further, you could fit regression lines to the scatter plots or make a multiple regression model to predict ozone pollution from meteorological variables:</p>
 </div>
-<div class="paragraph">
-<p>*https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html
-*http://www.datarobot.com/blog/multiple-regression-using-statsmodels</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html" class="bare">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html</a></p>
+</li>
+<li>
+<p><a href="http://www.datarobot.com/blog/multiple-regression-using-statsmodels" class="bare">http://www.datarobot.com/blog/multiple-regression-using-statsmodels</a></p>
+</li>
+</ul>
 </div>
 </li>
 <li>
