@@ -452,7 +452,8 @@ MathJax.Hub.Config({
 <li><a href="#_simple_commands_in_the_shell">2. Simple commands in the shell</a>
 <ul class="sectlevel2">
 <li><a href="#_external_resources">2.1. External resources</a></li>
-<li><a href="#_videos">2.2. Videos</a></li>
+<li><a href="#_commands_that_will_save_you_vast_amounts_of_time">2.2. Commands that will save you vast amounts of time</a></li>
+<li><a href="#_videos">2.3. Videos</a></li>
 </ul>
 </li>
 <li><a href="#_version_control_with_git">3. Version control with git</a>
@@ -591,7 +592,7 @@ While the content of many natural science disciplines has certain fixed referenc
 the methods by which today&#8217;s research students conduct research is quite different from a generation ago.</p>
 </div>
 <div class="paragraph">
-<p>This book has emerged from a course that I taught as part of a doctoral training program at the University of Edinburgh.
+<p>This book has emerged from a course that I teach as part of a <a href="http://e3dtp.geos.ed.ac.uk/">doctoral training program</a> at the <a href="http://www.ed.ac.uk/">University of Edinburgh</a>.
 Students in our program have backgrounds in geology, geography, ecology, biology, and other allied fields. Their disciplinary knowledge is quite disparite.
 Regardless of discipline, however, research students need some shared tools to do research.
 This course is designed to provide some basic tools that serve as a starting point for studnents to learn about numeracy, modelling and data management.</p>
@@ -620,7 +621,7 @@ This course is designed to provide some basic tools that serve as a starting poi
 </div>
 <div class="paragraph">
 <p>Two important words in that definition are "systematic" and "testable".
-The most common form of scientific communication today is the publication of scientific work in a peer-reviewed journal.
+The most common form of scientific communication today is the publication of scientific work in peer-reviewed journals.
 The process of getting your work published in such a journal involves convincing reviewers, who are other scientists,
 that you have been systematic in your research and you have "tested" what you claim to have tested (for example, that your data show what you say they show).</p>
 </div>
@@ -633,7 +634,7 @@ and being able to convince people that you have performed legitimate tests on ga
 <div class="paragraph">
 <p>One way in which you can convince others that you have done what you say you have done is to ensure your research is reproducible.
 Another person should be able to read your paper and reproduce your results.
-In 1989 Stanley Pons and Martin Fleischmann claimed to have carried out a successful cold fusion experiment,
+In 1989 <a href="https://en.wikipedia.org/wiki/Cold_fusion">Stanley Pons and Martin Fleischmann</a> claimed to have carried out a successful cold fusion experiment,
 but others were unable to reproduce their results and thus their findings were considered unsound.</p>
 </div>
 <div class="paragraph">
@@ -719,7 +720,7 @@ move on to another. It is somewhat safer to use tools that you know you can down
 </div>
 <div class="paragraph">
 <p>You will need to install some software on your computer before you can proceed with this course.
-I am afraid this will take some time. You should head to the Appendix: <a href="#A-Software">[A-Software]</a> and get everything installed before moving on to chapter 1.</p>
+I am afraid this will take some time. You should head to the Appendix: <a href="#A-Software">[A-Software]</a> and get everything installed before moving on to the next chapter.</p>
 </div>
 </div>
 <div class="sect2">
@@ -774,7 +775,104 @@ but if you want more information there are numerous websites that list common sh
 </div>
 </div>
 <div class="sect2">
-<h3 id="_videos">2.2. Videos</h3>
+<h3 id="_commands_that_will_save_you_vast_amounts_of_time">2.2. Commands that will save you vast amounts of time</h3>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Essential commands</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Shortcut</th>
+<th class="tableblock halign-left valign-top">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cd /directory1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change directory to /directory1. See <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/3/html/Step_by_Step_Guide/s1-navigating-cd.html">notes here</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cd ..</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Go up a directory level</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ls</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all the files within a directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ls -l</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all the files with details</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ls *pattern</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all files ending with <code>pattern</code> (so you could look for python files with <code>ls *.py</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ls pattern*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all files starting with <code>pattern</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ls *pattern*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all files with <code>pattern</code> in them.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mv file1 file2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Moves a file. The files can have a directory path</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cp file1 file2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copies file1 to file2. Can include a directory path</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mkdir directoryname</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Makes a directory with the name directoryname</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rm file1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Removes the file with filename file1. The pattern rules using <code>*</code> apply here (see <code>ls</code> commands).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rmdir directoryname</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Removes the directory directoryname. <strong>It has to be empty</strong>. If you want to remove a directory that contains files you need to use <code>rmdir -r directroyname</code>. Be warned: mess this up and you can delete lots of files!! There is no undelete!</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Commands that will make things go <strong>MUCH</strong> faster</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Shortcut</th>
+<th class="tableblock halign-left valign-top">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tab</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Autocompletes file and directory names.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ctrl-e</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Moves cursor to end of command line</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ctrl-a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Moves cursor to beginning of command line</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Up and down arrows</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scrolls through history of commands</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_videos">2.3. Videos</h3>
 <div class="paragraph">
 <p>Here are some videos that take you through simple commands in the shell</p>
 </div>
@@ -2208,7 +2306,7 @@ or trying to create new plots by follwing the <a href="http://matplotlib.org/gal
 Some of these are essential, and some are optional and included for completeness.
 In the following appendices, instructions for getting them installed on <a href="#_setting_up_on_windows">Windows</a>
 or <a href="#_setting_up_on_linux">Linux</a> are included. Since the author of this book does not have any computers running on friut-based operating system,
-I&#8217;m afraid instructions for getting the software working on OSX will require a bit of homework,
+I&#8217;m afraid instructions for getting the software working on MacOS will require a bit of homework,
 but in theory installation on such systems should be similar to installation on Linux systems.</p>
 </div>
 <div class="admonitionblock warning">
@@ -2218,10 +2316,8 @@ but in theory installation on such systems should be similar to installation on 
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-The recommended configuration is to set up a virtual machine running Linux.
-This might seem a bit daunting if you have never used Linux before. Just the fact that you need to download an disk image of an operating system like Ubuntu that is 1Gb is slightly frightening.
-However, although installing things in Windows will lead to high levels of frustration and anxiety.
-It can be done (and the authors have done it), but that is a hard and trying road not for the faint of heart.
+Most of the software described here has reasonably simple installation packages for all operating systems.
+However, the videos are often presented in the context of a Linux shell. If you do not have access to a Linux server, your best bet is to follow our instructions for <a href="#Automated software installation using vagrant">[Automated software installation using vagrant]</a>.
 </td>
 </tr>
 </table>
@@ -2288,12 +2384,12 @@ It also facilitates communication and collaboration through the online communiti
 <div class="sect2">
 <h3 id="_useful_extras">A.2. Useful extras</h3>
 <div class="paragraph">
-<p>You could find these tools useful. In particular, my documentation is written using something called <a href="http://asciidoctor.org/">asciidoctor</a>, which is implemented in a programming language called Ruby.</p>
+<p>You could find these tools useful. In particular, my documentation is written using something called <a href="http://asciidoctor.org/">asciidoctor</a>, which is implemented in a programming language called Ruby. I love <a href="http://asciidoctor.org/">asciidoctor</a> and can&#8217;t say enough good things about it. But installation of Ruby and associated packages are not required for the course.</p>
 </div>
 <div class="sect3">
 <h4 id="_a_virtual_machine">A.2.1. A virtual machine</h4>
 <div class="paragraph">
-<p>This isn&#8217;t exactly optional software, but rather what you might use if it becomes too much trouble to install things on either a <strong>Windows</strong> or an <strong>OS X</strong> operating system.
+<p>This isn&#8217;t exactly optional software, but rather what you might use if it becomes too much trouble to install things on either a <strong>Windows</strong> or an <strong>MacOS</strong> operating system.
 A <a href="https://en.wikipedia.org/wiki/Virtual_machine">virtual machine</a> is software that allows you to emulate an operating system within another operating systems
 (for example, you can create a Linux operating system within a Windows computer).</p>
 </div>
@@ -2303,9 +2399,13 @@ and for other systems some components are rather tricky to get working.
 It therefore can be advantageous to run the tools described in this book within a virtual machine.</p>
 </div>
 <div class="paragraph">
-<p><a href="http://www.howtogeek.com/196060/beginner-geek-how-to-create-and-use-virtual-machines/">Several options exist</a>.
-My Windows computer has a virtual Linux system installed with the <a href="https://www.vmware.com/products/player/">VMware player</a> but you do have to find the section on <code>personal use</code> to get the free version.
-Another option is the <a href="https://www.virtualbox.org/">VirtualBox</a> system.</p>
+<p>Currently the best open source option for managing virtual machines is <a href="https://www.virtualbox.org/">VirtualBox</a>.
+Other options exists (e.g., <a href="http://www.parallels.com/">parallels</a>), but virtual box is both open source and reliable.</p>
+</div>
+<div class="paragraph">
+<p>You can run a vitrual box in two ways:
+1. You can download a full operating system; when you do this you will have a Linux desktop as though you have installed a full version of Ubuntu on your computer. There are two disadvantages to this approach. First, the guest operating system will be big (a fully installed Ubuntu system takes up 5-10Gb.) Secondly, and more problematic, is that the file systems on your virtual machine and on your host computer (i.e., your normal operating system) cannot see each other and you have to do a bit of tweaking to move files across. This is annoying and inefficient.
+2. You can use something called <a href="https://www.vagrantup.com/">Vagrant</a> to create a server running on your machine. This server will be much smaller than the full Linux operating system, and Vagrant allows you to sync folders across the operating systems. The disadvantage is it doens&#8217;t come with a nice windowing system. But for this course we will be doing most things from command line anyway: the Vagrant methods is therefore recommended.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2991,7 +3091,7 @@ $ sudo apt-get install gfortran</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-09-16 08:24:24 GMT Daylight Time
+Last updated 2015-10-26 10:54:56 GMT Standard Time
 </div>
 </div>
 </body>
