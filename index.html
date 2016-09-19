@@ -749,7 +749,7 @@ move on to another. It is somewhat safer to use tools that you know you can down
 </div>
 <div class="paragraph">
 <p>You will need to install some software on your computer before you can proceed with this course.
-I am afraid this will take some time. Use the quick links below to get everything installed before moving on to the next chapter. If you want more detail you should head to the Appendix: <a href="#A-Software">[A-Software]</a>.</p>
+I am afraid this will take some time. Use the quick links below to get everything installed before moving on to the next chapter. If you want more detail you should head to the Appendix: <a href="#_software">Software</a>.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -2529,14 +2529,14 @@ and will need to be installed before you can work on the exercises in the book.<
 <div class="sect3">
 <h4 id="_git">A.1.2. Git</h4>
 <div class="paragraph">
-<p>[Git] is version control software. It helps you keep track of changes to your scripts, notes, papers, etc.
+<p><a href="https://git-scm.com/">Git</a> is version control software. It helps you keep track of changes to your scripts, notes, papers, etc.
 It also facilitates communication and collaboration through the online communities <a href="https://github.com/">github</a> and <a href="https://bitbucket.org/">bitbucket</a>.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_python">A.1.3. Python</h4>
 <div class="paragraph">
-<p>Python is a programming language used by many scientists to visualize data and crunch numbers. You can also use it to automate data management.</p>
+<p>Python is a programming language used by many scientists to visualize data and crunch numbers. You can also use it to automate data management. We will use <strong>Python 2.7</strong>.</p>
 </div>
 <div class="paragraph">
 <p>You will need:</p>
@@ -2544,7 +2544,7 @@ It also facilitates communication and collaboration through the online communiti
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The <a href="https://www.python.org/">python programming language</a></p>
+<p>The <a href="https://www.python.org/">python programming language</a>. We will use <strong>Python 2.7</strong>.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2864,7 +2864,7 @@ It hasn&#8217;t been adopted to a great extent by the scientific community but y
 <p>If you are on windows, download <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">putty.exe</a>.</p>
 </li>
 <li>
-<p>Somewhere on your computer you should make a directory where you will put files associated with your virtual machines. I tend to put it in <code>pass:[C:\]VagrantBoxes</code></p>
+<p>Somewhere on your computer you should make a directory where you will put files associated with your virtual machines. I tend to put it in <code>C:\VagrantBoxes</code></p>
 </li>
 <li>
 <p>Inside this directory, make two additional directories. Call one <code>Ubuntu32</code> and the other one <code>NMDM</code>. The <code>NMDM</code> is <strong>case sensitive</strong>, so make sure it is all capitol letters or <strong>later steps won&#8217;t work</strong>.</p>
@@ -2876,7 +2876,7 @@ It hasn&#8217;t been adopted to a great extent by the scientific community but y
 <p>Copy the raw file (<code>ctrl-A</code> then <code>ctrl-C</code>), paste it into a text editor (<code>ctrl-v</code>) and then save the file as <code>vagrantfile</code> (no extension!!) in the <strong>Unbuntu32</strong> directory you made earlier.</p>
 </li>
 <li>
-<p>Open a powershell window and go to that directory (<code>cd pass:[C:\]VagrantBoxes\Ubuntu32</code>) and then type <code>vagrant up</code>.</p>
+<p>Open a powershell window and go to that directory (<code>cd C:\VagrantBoxes\Ubuntu32</code>) and then type <code>vagrant up</code>.</p>
 </li>
 <li>
 <p>Wait for a long time as ~1 Gb of stuff downloads and a Linux operating system boots. If you get an error message about a timeout just run <code>vagrant halt</code> and <code>vagrant up</code> again.</p>
@@ -2894,7 +2894,7 @@ It hasn&#8217;t been adopted to a great extent by the scientific community but y
 <p>You will find yourself in a Linux server!</p>
 </li>
 <li>
-<p>The directory in the server <code>/NMDM</code> is the same as <code>pass:[C:\]VagrantBoxes\NMDM</code> in your host computer! You can edit files in one opertaing system and instantly access it in the other!</p>
+<p>The directory in the server <code>/NMDM</code> is the same as <code>C:\VagrantBoxes\NMDM</code> in your host computer! You can edit files in one opertaing system and instantly access it in the other!</p>
 </li>
 <li>
 <p>To shut the machine type <code>vagrant halt</code> in the same terminal or powershell window where you typed <code>vagrant up</code>.</p>
@@ -2974,7 +2974,7 @@ The <code>PS&gt;</code> denotes the powershell prompt.
 <div class="sect3">
 <h4 id="_python_2">B.2.3. Python</h4>
 <div class="paragraph">
-<p>The best way to install python is <a href="http://conda.pydata.org/miniconda.html">miniconda</a></p>
+<p>The best way to install python is <a href="http://conda.pydata.org/miniconda.html">miniconda</a>. We will use <strong>Python 2.7</strong>, so use the Python 2.7 installer.</p>
 </div>
 <div class="paragraph">
 <p>Once you have installed that, you can go into a powershell and get the other stuff you need:</p>
@@ -3248,7 +3248,7 @@ If you don&#8217;t use Debian of Ubuntu, you will need to look up the installati
 <div class="sect3">
 <h4 id="_installing_python_using_miniconda">C.3.1. Installing python using miniconda</h4>
 <div class="paragraph">
-<p>Native Linux users will probably want to do things using <strong>pip</strong> (see below) but you can also use <a href="http://conda.pydata.org/miniconda.html">miniconda</a>. First install miniconda using <a href="http://conda.pydata.org/docs/install/quick.html#linux-miniconda-install">instructions here</a>. Then use the <code>conda</code> command to install stuff:</p>
+<p>Native Linux users will probably want to do things using <strong>pip</strong> (see below) but you can also use <a href="http://conda.pydata.org/miniconda.html">miniconda</a>. First install miniconda using <a href="http://conda.pydata.org/docs/install/quick.html#linux-miniconda-install">instructions here</a>. We will use <strong>Python 2.7</strong>, so use the Python 2.7 installer. Then use the <code>conda</code> command to install stuff:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3452,7 +3452,7 @@ To do that type:</p>
 <div class="sect3">
 <h4 id="_python_4">D.2.3. Python</h4>
 <div class="paragraph">
-<p>The latest MacOS systems come with python. Managing all the extra packages in MacOs is probably easiest with <a href="http://conda.pydata.org/miniconda.html">miniconda</a>.</p>
+<p>The latest MacOS systems come with python. Managing all the extra packages in MacOs is probably easiest with <a href="http://conda.pydata.org/miniconda.html">miniconda</a>. We will use <strong>Python 2.7</strong>, so use the Python 2.7 installer.</p>
 </div>
 <div class="paragraph">
 <p>Once you have installed <strong>miniconda</strong>, you can go into a terminal and get the other stuff you need:</p>
