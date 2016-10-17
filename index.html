@@ -510,9 +510,17 @@ MathJax.Hub.Config({
 <li><a href="#_plot_the_data">5.2.3. Plot the data</a></li>
 </ul>
 </li>
+<li><a href="#_making_a_simple_plotting_package">5.3. Making a simple plotting package</a>
+<ul class="sectlevel3">
+<li><a href="#_easy_steps_to_make_a_package">5.3.1. Easy steps to make a package</a></li>
+<li><a href="#_example_figures_for_publications">5.3.2. Example: figures for publications</a></li>
+<li><a href="#_more_formatting">5.3.3. More formatting</a></li>
+<li><a href="#_where_to_go_from_here">5.3.4. Where to go from here</a></li>
 </ul>
 </li>
-<li><a href="#_summary_3">6. Summary</a></li>
+<li><a href="#_summary_3">5.4. Summary</a></li>
+</ul>
+</li>
 <li><a href="#_software">Appendix A: Software</a>
 <ul class="sectlevel2">
 <li><a href="#_essentials">A.1. Essentials</a>
@@ -1619,10 +1627,26 @@ The video will take you through the creation of this file and how to get it on g
 </div>
 </div>
 <div class="paragraph">
-<p>in your favourite text editor and call it <code>some_data.csv</code> in this folder.</p>
+<p>in your favourite text editor and call it <code>some_data.csv</code> in this folder. Note the "csv" stands for comma separated values: that is text or numbers separated by commas. Python in general and <a href="http://pandas.pydata.org/">pandas</a> in partuclar are good at dealing with <code>csv</code> data.</p>
 </div>
 <div class="paragraph">
-<p>Then, put this folder under git version control (see video or the <a href="#_getting_started_with_git">git section</a> if you don&#8217;t know how to do this) and then link it with a new github repository.</p>
+<p>Then, put this folder under git version control (see video or the <a href="#_getting_started_with_git">git section</a> if you don&#8217;t know how to do this) and then link it with a new github repository. If you forgot how to do that the steps are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Type <code>git init</code> in your folder.</p>
+</li>
+<li>
+<p>Use <code>git add</code> to add the files. It is wise to make a file named <code>README.md</code> because github will look for that.</p>
+</li>
+<li>
+<p>Go to the <a href="https://github.com/">github website</a> and make a new repository.</p>
+</li>
+<li>
+<p>Github will tell you the name of the remote. Follow the instructions using <code>git add remote</code>.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>The next step is to make a python script: <a href="http://www.geos.ed.ac.uk/~smudd/export_data/EMDM_videos/DTP_NMDMcourse_video_017_pythonscript.mp4" class="bare">http://www.geos.ed.ac.uk/~smudd/export_data/EMDM_videos/DTP_NMDMcourse_video_017_pythonscript.mp4</a>.</p>
@@ -1682,7 +1706,7 @@ In the next chapter, we will go over how one plots data in python using matplotl
 <p>Whilst a little awkward to start with, if you tenderly nourish your nascent relationship with Matplotlib, you will find that it will provide a comprehensive range of options for plotting and annotating, with the advantage that if you need to reproduce figures, you can do so at the touch of a button (or a single command for all you Linux types).  For some annotations, such as more complex annotations, it may still be necessary/easier for you to modify the figures in a graphics package.  Fortunately, <a href="https://inkscape.org/en/">Inkscape</a> provides a nice package that deals with Scalar Vector Graphics (SVG) files, which enables it to sync nicely with your Matplotlib output.  We’ll deal with this later.</p>
 </div>
 <div class="paragraph">
-<p>In this class, we will be using a python GUI called <a href="https://code.google.com/p/spyderlib/">Spyder</a>, which also gets installed by default with  <a href="https://code.google.com/p/pythonxy/">pythonxy</a> and the <a href="https://www.continuum.io/downloads">Anaconda python distribution</a>. If you have followed the installation instructions in the appendices you should already have it installed. All of this is also available on the University of Edinburgh servers.</p>
+<p>In this class, we will be using a python GUI called <a href="https://code.google.com/p/spyderlib/">Spyder</a>. If you have followed the installation instructions in the appendices you should already have it installed. If you haven&#8217;t follow the links for installation instructions on <a href="#_setting_up_on_windows">Windows</a>, <a href="#_setting_up_on_linux">Linux</a>, and <a href="#Setting up on Mac">MacOS</a>. All of this is also available on the University of Edinburgh servers.</p>
 </div>
 <div class="paragraph">
 <p>Before we begin, it is worth pointing out that there are many ways of producing the same figure, and there are an infinite number of possible permutations with regards to what kind of figure you might want to produce.  With this in mind, we will try to introduce you to as many different options as is feasible within the confines of this course.  The aim is to give you sufficient knowledge of the commonly used commands for plotting in Matplotlib, so that you can quickly move on to producing your own scripts.  The best way of becoming the proficient Matplotlib wizard that you aspire to be is to practice making your own.  You will never look at an Excel plot in the same way again!</p>
@@ -2341,7 +2365,7 @@ Well done for making it this far!</p>
 <p>The introductory video: <a href="http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mp4" class="bare">http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mp4</a> or <a href="http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mov" class="bare">http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mov</a></p>
 </li>
 <li>
-<p>Video on plotting 2D data: <a href="http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mp4" class="bare">http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mp4</a> or <a href="http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mov" class="bare">http://www.geos.ed.ac.uk/~ressery/matplotlibintro.mov</a></p>
+<p>Video on plotting 2D data: <a href="http://www.geos.ed.ac.uk/~ressery/matplotlib2D.mp4" class="bare">http://www.geos.ed.ac.uk/~ressery/matplotlib2D.mp4</a> or <a href="http://www.geos.ed.ac.uk/~ressery/matplotlib2D.mov" class="bare">http://www.geos.ed.ac.uk/~ressery/matplotlib2D.mov</a></p>
 </li>
 </ul>
 </div>
@@ -2457,15 +2481,373 @@ You will want to add coastlines if plotting fields for larger geographic areas, 
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_making_a_simple_plotting_package">5.3. Making a simple plotting package</h3>
+<div class="paragraph">
+<p>As you start to write simple functions in python, you might not only start to accumulate a number of tool you wish to recycle, but you might also end up with large numbers of individual files. It might make sense for you to package these files into a python package.</p>
+</div>
+<div class="paragraph">
+<p>Once you package your python modules you can <code>import</code> them. This takes very little effort. In this section we are going to explain how to make a very simple python package. We will use a plotting example in which you will use <a href="http://matplotlib.org/">matplotlib</a> to prepare figures for publication. The package will just plot x-y data but of the correct size to make a figure for an 83 mm wide column.</p>
+</div>
+<div class="paragraph">
+<p>Why don&#8217;t we just do this in excel? First, read this: <a href="http://science.sciencemag.org/content/354/6308/142">The hard road to reproducibility, Science Magazine, 2016</a>. Then consider that you have made an excel plot for a paper and you get a few new data points. Do you really want to go through all the data selection, formatting, clicking, etc again? Also, once your figure is published, you might want to quickly generate it again. Doing this with code is the best way to ensure your figures are reproducible. If you keep them under version control (using, for example, <strong>git</strong>), it means that you can go back and see how you did every iteration of the figure. I highly recommend this approach.</p>
+</div>
+<div class="sect3">
+<h4 id="_easy_steps_to_make_a_package">5.3.1. Easy steps to make a package</h4>
+<div class="paragraph">
+<p>Okay, brace yourself. Are you ready? Here are the step.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make a directory to hold your modules (i.e., <code>.py</code> files).</p>
+</li>
+<li>
+<p>Put your modules in that folder. These should contain functions defined using <code>def</code>.</p>
+</li>
+<li>
+<p>In that folder make a file called __init__.py. That is, two underscores, <code>init</code> another two underscores and then <code>.py</code>.</p>
+</li>
+<li>
+<p>In the __init__.py file write <code>from MyModule import *</code> for each of your modules. So if your module was called <code>SupaPlot.py</code>, your __init__.py file would contain the line <code>from SupaPLot import *</code>.</p>
+</li>
+<li>
+<p>You are finished! Now all you need to do in put the folder wherever you want to work and you and import it with <code>import MyPackageName</code>, where <code>MyPackageName</code> is the name of the directory.</p>
+</li>
+</ol>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_summary_3">6. Summary</h2>
-<div class="sectionbody">
+<div class="sect3">
+<h4 id="_example_figures_for_publications">5.3.2. Example: figures for publications</h4>
+<div class="paragraph">
+<p>We will go through a simple plotting package for taking x-y data and plotting it so that the figure is exactly the right size for a standard 1 column figure in a typical journal. These are almost always ~80mm wide, and for <a href="http://publications.copernicus.org/">Copernicus</a> journals (the journals for the <a href="http://www.egu.eu/">European Geosciences Union</a>) they are exactly 83mm wide. You should be able to look up the size of figures in your favourite journal under the author guidelines section.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, make a directory to hold your python package. I am going to call mine <code>FormattedFigures</code>.</p>
+</li>
+<li>
+<p>Create a python file inside this directory called <code>CopernicusFormat.py</code> (you can use a text editor or Spyder to make a new file).</p>
+</li>
+<li>
+<p>You are going to need <strong>matplotlib&#8217;s</strong> plotting functions, so import some stuff:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import matplotlib.pyplot as plt
+from matplotlib import rcParams</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>The <code>matplotlib.pyplot</code> package just contains the plotting functions and the <code>rcParams</code> allows you to change default plot settings.</p>
+</li>
+<li>
+<p>We will first define a simple plotting function. It takes x-y data and makes a plot that is 83mm wide:</p>
+<div class="listingblock">
+<div class="title">The CopernicusFormat.py file</div>
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import matplotlib.pyplot as plt
+from matplotlib import rcParams
+
+# A very simple plot that makes an 83mm wide figure
+def SimplePlot(x,y):
+
+    FileFormat = "pdf"
+
+    # Set the label font
+    label_size = 8
+
+    # Set up fonts for plots
+    rcParams['font.family'] = 'sans-serif'
+    rcParams['font.sans-serif'] = ['arial']
+    rcParams['font.size'] = label_size
+
+    Fig1 = plt.figure(1, facecolor='white',figsize=(3.26,3.26))
+    plt.plot(x,y)
+    plt.savefig("A_figure.pdf", format = FileFormat)
+    plt.clf()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A few things to note here: we want a pdf file so we set a <code>FileFormat</code>. We set the <code>label_size</code> for the fonts. We use <code>rcParams</code> to set up some defaults. Finally we include a size of the figure. Somewhat stupidly, the default unit of measure for matplotlib is inches, so the bit that says <code>figsize=(3.26,3.26)</code> is telling matplotlib it wants a 3.26x3.26 inch figure. 3.26 inches happen to be equal to 83 mm.</p>
+</div>
+</li>
+<li>
+<p>Okay, we need to write a few more simple files. First, we will make an __init__.py file in the directory <code>FormattedFigures</code>.  This file contains, in its entirety, the following line:</p>
+<div class="listingblock">
+<div class="title">The __init__.py file, in its entirety</div>
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">from CopernicusFormat import *</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Okay, now lets write a file to test this package. In one directory up from the <code>FormattedFigures</code> directory, write a python file called <code>test_copernicus.py</code>. It will import the packages <code>FormattedFigures</code>. The package has that name because that is the name of its directory. The file should look like this:</p>
+<div class="listingblock">
+<div class="title">The test_copernicus.py file</div>
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import FormattedFigures as FF
+
+def test_plot():
+    x = [1,2,3,4]
+    y = [3,2,1,2]
+
+    print x
+    print y
+
+    FF.SimplePlot(x,y)
+
+
+
+# This bit at the bottom tells the python interpreter what to do if you run the
+# script directly
+if __name__ == "__main__":
+    test_plot()</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If you run this script you should get a pdf that looks like this:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/First_figure.png" alt="A very simple figure">
+</div>
+<div class="title">Figure 5. A very simple figure.</div>
+</div>
+<div class="paragraph">
+<p>This figure happens to be exactly 83mm wide!</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_more_formatting">5.3.3. More formatting</h4>
+<div class="paragraph">
+<p>Okay, lets add some extra formatting.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>I am going to make a second function that includes x and y axis labels. It goes in the <code>CopernicusFormat.py</code> file. Here is the function:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python"># A very simple plot that makes an 83mm wide figure
+def SimplePlot2(x,y,xlabel_text = "x", ylabel_text = "y"):
+
+    # We want a pdf figure so we set the fileformat to pdf
+    FileFormat = "pdf"
+
+    # Set the label font
+    default_size = 8
+    label_size = 11
+
+    # Set up fonts for plots
+    rcParams['font.family'] = 'sans-serif'
+    rcParams['font.sans-serif'] = ['arial']
+    rcParams['font.size'] = default_size
+
+    plt.figure(1, facecolor='white',figsize=(3.26,3.26))
+    plt.xlabel(xlabel_text,fontsize = label_size)
+    plt.ylabel(ylabel_text,fontsize = label_size)
+    plt.plot(x,y)
+    plt.savefig("Figure2.pdf", format = FileFormat)
+    plt.clf()</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>This plot does a few different things: it has different sizes for the default font and for the labels. It also allows your to input axes labels as strings. When it declares on the definition line <code>xlabel_text = "x"</code> it means that the default value for <code>xlabel_text</code> is <code>"x"</code>.</p>
+</li>
+<li>
+<p>You can run this if you add the line: <code>FF.SimplePlot2(x,y,"Toads","Popsicles")</code> to your <code>test_copernicus.py</code> file. The result is this:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Figure2.png" alt="A very simple figure">
+</div>
+<div class="title">Figure 6. A not quite as simple figure</div>
+</div>
+</li>
+<li>
+<p>There are a few things wrong with this: The label <code>Popsicles</code> is getting cut off, and the tick marks are not the same size as the borders. Lets try to fix these things.</p>
+</li>
+</ol>
+</div>
+<div class="sect4">
+<h5 id="_fixing_ticks_and_spines">Fixing ticks and spines</h5>
+<div class="paragraph">
+<p>This is going to seem tedious but the way to manipulate the spines and ticks is by controlling them directly, which means adding some more lines to your code.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Replace the middle lines of the second plotting function with:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">    ax = plt.subplot(111)
+    ax.plot(x,y,linewidth=2)
+    plt.xlabel(xlabel_text,fontsize = label_size)
+    plt.ylabel(ylabel_text,fontsize = label_size)
+
+    # This makes all the spines thick so you can see them
+    ax.spines['top'].set_linewidth(1.5)
+    ax.spines['left'].set_linewidth(1.5)
+    ax.spines['right'].set_linewidth(1.5)
+    ax.spines['bottom'].set_linewidth(1.5)
+
+    # This gets all the ticks, and pads them away from the axis so that the corners don't overlap
+    ax.tick_params(axis='both', width=1.5, pad = 2)
+    for tick in ax.xaxis.get_major_ticks():
+        tick.set_pad(10)
+
+    plt.savefig("Figure2.pdf", format = FileFormat)
+    plt.clf()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This solves some of the problems:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Figure2b.png" alt="A very simple" width="better" height="figure">
+</div>
+<div class="title">Figure 7. A not quite as simple figure, with adjusted ticks and spines</div>
+</div>
+</li>
+<li>
+<p>What is going on here? First I use <code>subplot</code> to get an axis handle so that I can control the elements of the axis. I then set the linewidth of the spines and ticks. I also set padding of the ticks to control how much space is between my ticks and my text. I also changes the linewidth of my plot so that it is a bit bigger than the ticks and the spines.</p>
+</li>
+<li>
+<p>If you want longer tick marks you can change the following line:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">    ax.tick_params(axis='both', width=1.5, pad = 2, length = 10)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will make your plot look stupid but you can see what is happening.</p>
+</div>
+<div class="paragraph">
+<p>You can also change the ticks from pointing in to pointing out by adding this to the line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">    ax.tick_params(axis='both', width=1.5, pad = 2, length = 10, direction="out")</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_getting_things_to_fit">Getting things to fit</h5>
+<div class="paragraph">
+<p>In previous lessons, we have used the <code>tight</code> control on figure formatting. However, sometimes when you mix multiple elements this doesn&#8217;t work. In addition, you might want some control over placement of your figure&#8217;s elements. This is where the <a href="http://matplotlib.org/users/gridspec.html"><code>GridSpec</code></a> package is very useful.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://matplotlib.org/users/gridspec.html"><code>GridSpec</code></a> allows you to make totally custom plots, and helps place different plot elements. I encourage you to read the documentation on the matplotlib website if you want to make custom grids, but here I just go over some of the basics.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, add a third module to your plotting code:</p>
+<div class="listingblock">
+<div class="title">The GridSpec version of your figure</div>
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python"># A very simple plot that makes an 83mm wide figure, using GridSpec
+def SimpleGridSpecPlot(x,y,xlabel_text = "x", ylabel_text = "y"):
+
+    # We need to get the GridSpec package
+    from matplotlib.gridspec import GridSpec
+
+    # We want a pdf figure so we set the fileformat to pdf
+    FileFormat = "pdf"
+
+    # Set the label font
+    default_size = 8
+    label_size = 11
+
+    # Set up fonts for plots
+    rcParams['font.family'] = 'sans-serif'
+    rcParams['font.sans-serif'] = ['arial']
+    rcParams['font.size'] = default_size
+
+    Fig1 = plt.figure(1, facecolor='white',figsize=(3.26,3.26))
+
+    # generate a 100x100 grid. The other bits of data are the padding on the edge
+    gs = GridSpec(100,100,bottom=0.13,left=0.0,right=0.95,top=1.0)
+
+    # Now place the plot in the grid. NOTE: the first set of numbers is the rows (vertical direction),
+    # starting from the TOP
+    ax = Fig1.add_subplot(gs[15:90,15:95])
+
+    ax.plot(x,y,linewidth=2)
+    plt.xlabel(xlabel_text,fontsize = label_size)
+    plt.ylabel(ylabel_text,fontsize = label_size)
+
+    # This makes all the spines thick so you can see them
+    ax.spines['top'].set_linewidth(1.5)
+    ax.spines['left'].set_linewidth(1.5)
+    ax.spines['right'].set_linewidth(1.5)
+    ax.spines['bottom'].set_linewidth(1.5)
+
+    # This gets all the ticks, and pads them away from the axis so that the corners don't overlap
+    ax.tick_params(axis='both', width=1.5, pad = 2, length = 3,direction="in")
+    for tick in ax.xaxis.get_major_ticks():
+        tick.set_pad(10)
+
+    plt.savefig("Figure_GridSpec.pdf", format = FileFormat)
+    plt.clf()</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Again, to run this you need to insert a line in your <code>test_copernicus.py</code> file.</p>
+<div class="paragraph">
+<p>The resulting figure looks like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Figure_GridSpec.png" alt="A GridSpec figure">
+</div>
+<div class="title">Figure 8. A figure positioned using GridSpec</div>
+</div>
+</li>
+<li>
+<p>You can try to adjust the numbers in the following lines to see the effect:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    # generate a 100x100 grid. The other bits of data are the padding on the edge
+    gs = GridSpec(100,100,bottom=0.13,left=0.0,right=0.95,top=1.0)
+
+    # Now place the plot in the grid. NOTE: the first set of numbers is the rows (vertical direction),
+    # starting from the TOP
+    ax = Fig1.add_subplot(gs[15:90,15:95])</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_where_to_go_from_here">5.3.4. Where to go from here</h4>
+<div class="paragraph">
+<p>Okay, you  might be thinking that this is quite a lot of work for just a simple figure. But you can copy and paste code: I&#8217;ve not written these kinds of scripts from scratch in many years: I recycle old code. In addition, this approach allows you to exactly create a figure for a paper that can be easily reproduced, a big advantage in scientific data analysis.</p>
+</div>
+<div class="paragraph">
+<p>We have obviously only scratched the surface of matplotlib plotting, but hopefully this has given you some ideas about where to dig deeper if you want learn about making figures using Matplotlib.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_summary_3">5.4. Summary</h3>
 <div class="paragraph">
 <p>This chapter has gone through the basics of plotting data using matplotlib.
 From here, you can start modifying your scripts,
 or trying to create new plots by following the <a href="http://matplotlib.org/gallery.html">examples on the matplotlib website</a>.</p>
+</div>
 </div>
 </div>
 </div>
